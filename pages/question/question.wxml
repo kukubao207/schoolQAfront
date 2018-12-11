@@ -2,13 +2,6 @@
 <view class="container">
     <view class="question-wrp">
         <view class="question-item">
-            <view class="que-tag">
-                <text class="tag">阅读</text>
-                <text class="tag">电子书</text>
-                <text class="tag">Kindle</text>
-                <text class="tag">书籍</text>
-                <text class="tag">文学</text>
-            </view>
             <view class="que-title">
                 选择 Kindle 而不是纸质书的原因是什么？
             </view>

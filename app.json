@@ -11,7 +11,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#0068C4",
-    "navigationBarTitleText": "知乎",
+    "navigationBarTitleText": "校园问答",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":true
   },
@@ -25,22 +25,12 @@
       "text": "",
       "iconPath": "images/index.png",
       "selectedIconPath": "images/index_focus.png"
-    }, {
-      "pagePath": "pages/discovery/discovery",
-      "text": "",
-      "iconPath": "images/discovery.png",
-      "selectedIconPath": "images/discovery_focus.png"
-    }, {
+    },  {
       "pagePath": "pages/notify/notify",
       "text": "",
       "iconPath": "images/ring.png",
       "selectedIconPath": "images/ring_focus.png"
-    }, {
-      "pagePath": "pages/chat/chat",
-      "text": "",
-      "iconPath": "images/chat.png",
-      "selectedIconPath": "images/chat_focus.png"
-    }, {
+    },  {
       "pagePath": "pages/more/more",
       "text": "",
       "iconPath": "images/burger.png",

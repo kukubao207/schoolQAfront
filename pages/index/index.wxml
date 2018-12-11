@@ -1,9 +1,11 @@
 <!--index.wxml-->
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+
+  <!--搜索框-->
   <view class="search flex-wrp">
       <view class="search-left flex-item">
           <image src="../../images/search.png"></image>
-          <input placeholder="搜索话题, 问题或人" placeholder-class="search-placeholder"/>
+          <input placeholder="搜索问题" placeholder-class="search-placeholder"/>
       </view>
       <view class="search-right flex-item" bindtap="upper">
           <image src="../../images/lighting.png"></image>
@@ -22,11 +24,13 @@
                 <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
             </view>
             <view class="feed-content">
+                <!--问题-->
                 <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
                     <a class="question-link">
                         <text>{{item.question}}</text>
                     </a>
                 </view>
+                <!--回答-->
                 <view class="answer-body">
                     <view bindtap="bindItemTap">
                         <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
