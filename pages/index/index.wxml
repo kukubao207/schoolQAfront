@@ -14,15 +14,15 @@
 
     <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
         <view class="feed-item">
-            <view class="feed-source">
+            <!-- <view class="feed-source">
                 <a class="">
-                    <view class="avatar">
+                    <v iew class="avatar">
                         <image src="{{item.feed_source_img}}"></image>
                     </view>
                     <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
                 </a>
                 <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
-            </view>
+            </view> -->
             <view class="feed-content">
                 <!--问题-->
                 <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
