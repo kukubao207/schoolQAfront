@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx34da96235b5adfc7",
-	"projectname": "zhihu",
+	"projectname": "schoolQAfront",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

@@ -7,6 +7,7 @@ Page({
     feed: [],
     feed_length: 0
   },
+
   //事件处理函数
   bindItemTap: function() {
     wx.navigateTo({
@@ -18,24 +19,28 @@ Page({
       url: '../question/question'
     })
   },
+
   onLoad: function () {
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
     this.getData();
   },
+
   upper: function () {
     wx.showNavigationBarLoading()
     this.refresh();
     console.log("upper");
     setTimeout(function(){wx.hideNavigationBarLoading();wx.stopPullDownRefresh();}, 2000);
   },
+
   lower: function (e) {
     wx.showNavigationBarLoading();
     var that = this;
     setTimeout(function(){wx.hideNavigationBarLoading();that.nextLoad();}, 1000);
     console.log("lower")
   },
+
   //scroll: function (e) {
   //  console.log("scroll")
   //},
@@ -62,6 +67,7 @@ Page({
       feed_length: feed_data.length
     });
   },
+
   refresh: function(){
     wx.showToast({
       title: '刷新中',
@@ -107,6 +113,4 @@ Page({
       })
     },3000)
   }
-
-
 })

@@ -2,7 +2,7 @@
 var util = require('../../utils/util.js')
 Page({
   data: {
-    navTab: ["通知", "赞与感谢", "关注"],
+    navTab: ["动态列表", "关注列表"],
     currentNavtab: "0"
   },
   onLoad: function () {

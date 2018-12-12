@@ -35,7 +35,14 @@
         <text>我的提问</text>
       </view>
     </view>
-
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/draft.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的回答</text>
+      </view>
+    </view>
 
   </view>
 </view>
