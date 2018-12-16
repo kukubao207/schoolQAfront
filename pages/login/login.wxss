@@ -1,19 +1,53 @@
 /* pages/login/login.wxss */
+
 /** 修改button默认的点击态样式类**/
+
+.container {
+  background: white;
+}
+
 .button-hover {
   background-color: rgba(0, 0, 255, 0.158);
 }
 
 /* pages/login/login.wxss */
+
 .user {
   width: 725rpx;
-  background: #ffffff;
-  padding: 30rpx 25rpx 30rpx 0;
-  margin: 15rpx 0 0 0;
+  background: #fff;
+  /* padding: 30rpx 25rpx 30rpx 0; *//* margin: 15rpx 0 0 0; */
   border-top: 1px solid #eee;
   border-bottom: 1px solid #dcdcdc;
-  box-shadow: 0 2px 5px #eeeeee;
+  box-shadow: 0 2px 5px #eee;
 }
+
+/* .loginBtn {
+  display: inline-block;
+  margin-left: 5%;
+  margin-right: 5%; 
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+} */
+
 .loginBtn {
-  display:block;margin:0 auto
+  position: fixed;
+  display: block;
+  margin: 0 auto;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+}
+
+.icon {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.icon .icon-avatar {
+  flex: 1;
+  display: inline-block;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 80rpx;
 }

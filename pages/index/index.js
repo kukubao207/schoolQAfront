@@ -24,7 +24,12 @@ Page({
       url: '../question/question?id='+qid
     })
   },
-
+  bindAskTap: function(e){
+    console.log(e);
+    wx.navigateTo({
+      url:'../writeQuestion/writeQuestion'
+    })
+  },
   onLoad: function () {
     console.log('onLoad')
     var that = this

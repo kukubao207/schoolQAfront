@@ -6,7 +6,8 @@
     "pages/more/more",
     "pages/answer/answer",
     "pages/question/question",
-    "pages/writeAnswer/writeAnswer"
+    "pages/writeAnswer/writeAnswer",
+    "pages/writeQuestion/writeQuestion"
   ],
   "window": {
     "backgroundTextStyle": "light",

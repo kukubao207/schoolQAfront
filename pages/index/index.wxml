@@ -1,42 +1,47 @@
 <!--index.wxml-->
-<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
 
   <!--搜索框-->
   <view class="search flex-wrp">
-      <view class="search-left flex-item">
-          <image src="../../images/search.png"></image>
-          <input placeholder="搜索问题" placeholder-class="search-placeholder"/>
-      </view>
-      <view class="search-right flex-item" bindtap="upper">
-          <image src="../../images/lighting.png"></image>
-      </view>
+    <view class="search-left flex-item">
+      <image src="../../images/search.png"></image>
+      <input placeholder="搜索问题" placeholder-class="search-placeholder" />
+    </view>
+    <!-- <view class="search-right flex-item" bindtap="upper"> -->
+    <view class="search-right flex-item" bindtap="bindAskTap">
+      <!-- <view> -->
+        <image class="ask" src="../../images/ask.png"></image>
+        <!-- <view class="ask-text">
+          <text>提问</text>
+        </view> -->
+      <!-- </view> -->
+    </view>
   </view>
 
-    <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-        <view class="feed-item">
-            <view class="feed-content">
-                <!--问题-->
-                <view class="question" bindtap="bindQueTap" data-qid="{{item.id}}">
-                    <a class="question-link">
-                        <text>{{item.title}}</text>
-                    </a>
-                </view>
-                <!--回答-->
-                <view class="answer-body">
-                    <view bindtap="bindItemTap" data-hi="WeChat">
-                        <text class="answer-txt" aid="{{item.answerVo.id}}">{{item.answerVO.answerContent}}</text>
-                    </view>
-                    <view class="answer-actions">
-                        <view class="comments dot">
-                            <a>{{item.answerCount}} 回答 </a>
-                        </view>
-                        <view class="follow-it">
-                            <a>{{item.createdDate}} </a>
-                        </view>
-                    </view>
-                </view>
-            </view>
+  <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <view class="feed-item">
+      <view class="feed-content">
+        <!--问题-->
+        <view class="question" bindtap="bindQueTap" data-qid="{{item.id}}">
+          <a class="question-link">
+            <text>{{item.title}}</text>
+          </a>
         </view>
-    </block>
+        <!--回答-->
+        <view class="answer-body">
+          <view bindtap="bindItemTap" data-hi="WeChat">
+            <text class="answer-txt" aid="{{item.answerVo.id}}">{{item.answerVO.answerContent}}</text>
+          </view>
+          <view class="answer-actions">
+            <view class="comments dot">
+              <a>{{item.answerCount}} 回答 </a>
+            </view>
+            <view class="follow-it">
+              <a>{{item.createdDate}}</a>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
 </scroll-view>
-

@@ -1,6 +1,7 @@
 var app=getApp()
 Page({
   data: {
+    icon_url:"../../images/icon9.jpeg",
     userInfo:{}
   },
   checkSession(e) {

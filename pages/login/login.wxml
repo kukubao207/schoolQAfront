@@ -1,11 +1,18 @@
 <!--pages/login/login.wxml-->
 
 <view class="container more">
-  <view class="user flex-wrp">
-    <view class="loginBtn">
-      <button type="primary" bindtap="primary" open-type="getUserInfo" bindgetuserinfo="login" >
-        微信登录
-      </button>
-    </view>
+  <!-- <view class="user flex-wrp"> -->
+  <view class="icon">
+    <image class="icon-avatar" src="{{icon_url}}"></image>
+  </view>
+
+  <view class="welcome">
+    <h2>欢迎来到南大问答社区！</h2>
+  </view>
+  <!-- </view> -->
+  <view class="loginBtn">
+    <button type="primary" bindtap="primary" open-type="getUserInfo" bindgetuserinfo="login">
+      微信用户快速登录
+    </button>
   </view>
 </view>
