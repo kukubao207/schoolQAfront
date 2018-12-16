@@ -34,7 +34,7 @@
             </view>
             <view class="write flex-item">
                 <image src="../../images/write.png"></image>
-                <text>写回答</text>
+                <text bindtap="writeAnswer">写回答</text>
             </view>
         </view>
     </view>

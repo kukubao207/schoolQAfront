@@ -30,7 +30,14 @@ Page({
   tapName: function(event){
     console.log(event)
   },
-
+  writeAnswer:function(){
+    wx.navigateTo({
+      url: '/pages/writeAnswer/writeAnswer',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   getQuestionInfo: function () {
     let that = this
     let url = "question/questionInfo/" + that.data.qid
