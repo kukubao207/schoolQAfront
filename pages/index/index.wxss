@@ -7,11 +7,11 @@
   width: 735rpx;
   height: 65rpx;
   padding: 12.5rpx 0 12.5rpx 15rpx;
-  background: #ccaaff;
+  background: #f95f5f;
 }
 .container .search-left{
   flex: 8;
-  background: #ccbbff;
+  background: #f37f7f;
   text-align: left;
 }
 .container .search-left input{

@@ -9,7 +9,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#0068C4",
+    "navigationBarBackgroundColor": "#ff3333",
     "navigationBarTitleText": "校园问答",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
