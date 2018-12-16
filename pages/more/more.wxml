@@ -1,11 +1,7 @@
 
 <view class="container more">
-  <button 
-    wx:if="{{ifGetUserInfo}}"
-    open-type="getUserInfo"
-    bindtap='loginTap' 
-    type='primary'>授权名字、头像信息</button>
-  <view wx:else>
+
+  <view>
     <view class="user flex-wrp">
       <view class="avatar flex-item">
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>

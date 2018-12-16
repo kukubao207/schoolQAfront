@@ -1,2 +1,11 @@
 <!--pages/login/login.wxml-->
 
+<view class="container more">
+  <view class="user flex-wrp">
+    <view class="loginBtn">
+      <button type="primary" bindtap="primary" open-type="getUserInfo" bindgetuserinfo="login" >
+        微信登录
+      </button>
+    </view>
+  </view>
+</view>

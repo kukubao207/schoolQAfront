@@ -1,51 +1,49 @@
-const types = ['default', 'primary', 'warn']
-const pageObject = {
+var app=getApp()
+Page({
   data: {
-    defaultSize: 'default',
-    primarySize: 'default',
-    warnSize: 'default',
-    disabled: false,
-    plain: false,
-    loading: false
+    userInfo:{}
   },
-  setDisabled(e) {
-    this.setData({
-      disabled: !this.data.disabled
+  checkSession(e) {
+    wx.checkSession({
+      success: res => {
+        console.log("success to session")
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      },
+      fail: res => {
+      }
     })
   },
-  setPlain(e) {
-    this.setData({
-      plain: !this.data.plain
-    })
-  }, 
-  setLoading(e) {
-    this.setData({
-      loading: !this.data.loading
-    })
-  },
-  onGotUserInfo(e) {
-    console.log(e.detail.errMsg)
+  login(e) {
     console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
-  },
-  loginTap: function (){
-    console.log("navigate to ../index/index")
-    wx.navigateTo({
-      url: '../index/index'
+    wx.login({
+      success: res => {
+        wx.request({
+          url: "http://"+app.globalData.productIp+":"+app.globalData.productPort + '/user/login',
+          method: 'post',
+          header: {
+            'content-type': 'application/json'
+          },
+          data: {
+            code: res.code,
+            userInfo: e.detail.userInfo
+          },
+          success: res => {
+            console.log(res.data)
+            wx.setStorageSync('openid', res.data.data.openid)
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }
+        })
+      }
     })
-  }
-}
-
-for (let i = 0; i < types.length; ++i) {
-  (function (type) {
-    pageObject[type] = function (e) {
-      const key = type + 'Size'
-      const changedData = {}
-      changedData[key] =
-        this.data[key] === 'default' ? 'mini' : 'default'
-      this.setData(changedData)
-    }
-  }(types[i]))
-}
-
-Page(pageObject)
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.checkSession()
+  },
+})
