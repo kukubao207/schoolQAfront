@@ -1,8 +1,19 @@
-const types = ['default', 'primary', 'warn']
-let app=getApp()
-const pageObject = {
+var app=getApp()
+Page({
   data: {
     userInfo:{}
+  },
+  checkSession(e) {
+    wx.checkSession({
+      success: res => {
+        console.log("success to session")
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      },
+      fail: res => {
+      }
+    })
   },
   login(e) {
     console.log(e.detail.userInfo)
@@ -33,8 +44,6 @@ const pageObject = {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.checkSession()
   },
-}
-
-Page(pageObject)
+})
