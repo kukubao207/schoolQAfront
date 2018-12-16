@@ -52,9 +52,6 @@ Page({
     var index_api = '';
     util.getData(index_api)
         .then(function(data){
-          //this.setData({
-          //
-          //});
           console.log(data);
         });
   },
@@ -63,10 +60,8 @@ Page({
   getData: function(){
     let that = this
     console.log(that.data.page)
-    let url = "http://localhost:8102/question/list/"+that.data.page+"/8"
+    let url = "question/list/"+that.data.page+"/8"
     var result = util.getData(url).then(function (res) {
-      console.log("------------");
-      console.log(res.data.data.content);
       that.setData({
         feed: res.data.data.content,
         feed_length: res.data.data.content.length

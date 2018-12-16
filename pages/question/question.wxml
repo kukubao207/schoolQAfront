@@ -19,7 +19,7 @@
                         <text>{{questionInfo.answerCount}}</text>
                     </view>
                 </view>
-                <view class="right">
+                <view class="right" bindtap="watchThisQuestion">
                     关注
                 </view>
             </view>

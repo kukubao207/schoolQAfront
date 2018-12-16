@@ -32,7 +32,7 @@ Page({
 
   getQuestionInfo: function () {
     let that = this
-    let url = "http://"+app.globalData.productIp+":"+app.globalData.productPort+"/question/questionInfo/" + that.data.qid
+    let url = "question/questionInfo/" + that.data.qid
     var result = util.getData(url).then(function (res) {
       that.setData({
         questionInfo: res.data.data,
@@ -41,13 +41,26 @@ Page({
   },
   getAnswerList:function (){
     let that =this
-    let url = "http://"+app.globalData.productIp+":"+app.globalData.productPort+"/question/"+that.data.qid+"/answers/1/8"
+    let url = "question/"+that.data.qid+"/answers/1/8"
     var result = util.getData(url).then(function (res) {
       that.setData({
         answerList: res.data.data.content,
       });
       console.log(that.data.answerList);
     }).catch(function (e) { return Promise.reject(e); });
+  },
+  watchThisQuestion:function(){
+    let qid = this.data.qid
+     wx.getStorage({
+      key: 'openid',
+      success: function(res) {
+        let openId = res.data
+        let url = "user/" + openId + "/watch/question/" + qid
+        console.log(url)
+      },
+      fail: function(res) {
+        console.log(res)
+      },
+    })
   }
-  
 })

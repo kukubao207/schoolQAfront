@@ -1,3 +1,4 @@
+var app = getApp()
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -28,12 +29,30 @@ var discovery_next = require('../data/data_discovery_next.js')
 function getData(url){
   return new Promise(function(resolve, reject){
     wx.request({
+      url: "http://"+app.globalData.productIp+":"+app.globalData.productPort+"/"+url,
+      header: {
+        //'Content-Type': 'application/json'
+      },
+      success: function(res) {
+        console.log("success")
+        resolve(res)
+      },
+      fail: function (res) {
+        reject(res)
+        console.log("failed")
+      }
+    })
+  })
+}
+function postData(url,data) {
+  return new Promise(function (resolve, reject) {
+    wx.request({
       url: url,
       data: {},
       header: {
         //'Content-Type': 'application/json'
       },
-      success: function(res) {
+      success: function (res) {
         console.log("success")
         resolve(res)
       },
