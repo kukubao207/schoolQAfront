@@ -63,8 +63,8 @@ Page({
   getData: function(){
     let that = this
     console.log(that.data.page)
-    let urllll = "http://localhost:8102/question/list/"+that.data.page+"/8"
-    var result = util.getData(urllll).then(function (res) {
+    let url = "http://localhost:8102/question/list/"+that.data.page+"/8"
+    var result = util.getData(url).then(function (res) {
       console.log("------------");
       console.log(res.data.data.content);
       that.setData({

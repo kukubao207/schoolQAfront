@@ -43,7 +43,7 @@ Page({
 
   getQuestionInfo: function () {
     let that = this
-    let url = "http://localhost:8102/question/questionInfo/" + that.data.qid
+    let url = "http://"+app.globalData.productIp+":"+app.globalData.productPort+"/question/questionInfo/" + that.data.qid
     var result = util.getData(url).then(function (res) {
       that.setData({
         questionInfo: res.data.data,
@@ -52,9 +52,8 @@ Page({
   },
   getAnswerList:function (){
     let that =this
-    let url = "http://localhost:8102/question/"+that.data.qid+"/answers/1/8"
+    let url = "http://"+app.globalData.productIp+":"+app.globalData.productPort+"/question/"+that.data.qid+"/answers/1/8"
     var result = util.getData(url).then(function (res) {
-      
       that.setData({
         answerList: res.data.data.content,
       });
