@@ -1,29 +1,31 @@
 //app.js
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    //小程序加载时需要检查session
+    this.checkSession()
   },
-  getUserInfo:function(cb){
-    console.log('global getUserInfo')
-    var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
+  checkSession() {
+    wx.checkSession({
+      success: res => {
+        console.log("success to session")
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      },
+      fail: res => {
+        console.log("fail to session")
+        wx.navigateTo({
+          url: '/pages/login/login',
+          success: function(res) {
+            console.log(res)
+          },
+          fail: function(res) {
+            console.log(res)
+          },
+          complete: function(res) {},
+        })
+      }
+    })
   },
   globalData:{
     userInfo:null,

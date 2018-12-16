@@ -44,7 +44,6 @@ function getData(url){
     })
   })
 }
-
 function getData2(){
   return index.index;
 }
