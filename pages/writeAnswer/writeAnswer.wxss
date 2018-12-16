@@ -11,3 +11,7 @@
   border-radius: 50rpx;
   border: 1rpx solid;
 }
+
+.switchButton {
+  text-align: center;
+}

@@ -18,7 +18,13 @@ Page({
   onLoad:function(option){
     console.log(option)
     this.setData({
-      qid: option.qid
+      questionId: option.qid
     })
-  }
+  },
+  switchChange(e) {
+    console.log('switch 发生 change 事件，携带值为', e.detail.value)
+    this.setData({
+      anoymous:e.detail.value
+    })
+  },
 })

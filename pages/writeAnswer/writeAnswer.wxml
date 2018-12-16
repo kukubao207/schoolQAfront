@@ -5,5 +5,6 @@
   <form bindsubmit="bindFormSubmit">
     <textarea class="textarea" placeholder="请说点什么吧" name="textarea" bindinput="getInput" auto-focus maxlength="1500"/>
     <button class="button" form-type="submit"> 回答 </button>
+    <switch class="switchButton" checked bindchange="switchChange">匿名</switch>
   </form>
 </view>
