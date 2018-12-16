@@ -7,11 +7,11 @@
   width: 735rpx;
   height: 65rpx;
   padding: 12.5rpx 0 12.5rpx 15rpx;
-  background: #2A8CE5;
+  background: #ccaaff;
 }
 .container .search-left{
   flex: 8;
-  background: #4EA3E7;
+  background: #ccbbff;
   text-align: left;
 }
 .container .search-left input{
@@ -20,7 +20,7 @@
   font-size: 26rpx;
 }
 .search-placeholder{
-  color: #8CCEFD;
+  color: white;
   line-height: 20rpx;
 }
 .container .search .search-left image{

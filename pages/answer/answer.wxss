@@ -11,7 +11,7 @@
     position: relative;
     width: 650rpx;
     padding: 40rpx 50rpx 30rpx;
-    background: #298DE5;
+    background: #ccaaff;
     color: #fff;
     font-size: 38rpx;
     line-height: 48rpx;
@@ -27,7 +27,7 @@
     top: 0;
     width: 750rpx;
     height: 75rpx;
-    background: #298DE5;
+    background: #ccaaff;
 }
 .answerer {
     position: relative;
