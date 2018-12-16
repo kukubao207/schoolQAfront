@@ -4,7 +4,6 @@ var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
-    motto: '知乎--微信小程序版',
     userInfo: {},
     qid:'',
     questionInfo:{},
@@ -17,25 +16,15 @@ Page({
     })
   },
   onLoad: function (option) {
-    console.log('onLoad')
+    console.log('page question onLoad')
     //第一步，获取questionId
-    let qid=option.id
     this.setData({
       qid:option.id
     })
-    console.log(qid);
     //第二步，加载问题详细数据questionInfo
     this.getQuestionInfo();
     //第三步，加载问题的回答列表answerList
     this.getAnswerList();
-    // var that = this
-    // //调用应用实例的方法获取全局数据
-    // app.getUserInfo(function(userInfo){
-    //   //更新数据
-    //   that.setData({
-    //     userInfo:userInfo
-    //   })
-    // })
   },
   tapName: function(event){
     console.log(event)

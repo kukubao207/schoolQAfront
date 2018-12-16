@@ -28,7 +28,7 @@
                     </view>
                     <view class="answer-actions">
                         <view class="comments dot">
-                            <a>{{item.answerCount}} 评论 </a>
+                            <a>{{item.answerCount}} 回答 </a>
                         </view>
                         <view class="follow-it">
                             <a>关注问题</a>

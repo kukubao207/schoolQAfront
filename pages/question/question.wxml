@@ -16,7 +16,7 @@
                     </view>
                     <view class="comment">
                         <image src="../../images/comment2.png"></image>
-                        <text>27</text>
+                        <text>{{questionInfo.answerCount}}</text>
                     </view>
                 </view>
                 <view class="right">
