@@ -3,7 +3,7 @@
 
 <view class="section">
   <form bindsubmit="bindFormSubmit">
-    <textarea placeholder="form 中的 textarea" name="textarea" auto-focus />
-    <button form-type="submit"> 提交 </button>
+    <textarea class="textarea" placeholder="请说点什么吧" name="textarea" bindinput="getInput" auto-focus maxlength="1500"/>
+    <button class="button" form-type="submit"> 回答 </button>
   </form>
 </view>

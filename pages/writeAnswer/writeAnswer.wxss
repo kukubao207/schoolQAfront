@@ -1,1 +1,13 @@
 /* pages/writeAnswer/writeAnswer.wxss */
+.textarea {
+  font-size: 35rpx;
+  margin: 10%;
+  background-color:white;
+  width: 80%;
+  height: 600rpx;
+}
+.button {
+  margin: 20%;
+  border-radius: 50rpx;
+  border: 1rpx solid;
+}

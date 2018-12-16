@@ -31,8 +31,9 @@ Page({
     console.log(event)
   },
   writeAnswer:function(){
+    let qid = this.qid;
     wx.navigateTo({
-      url: '/pages/writeAnswer/writeAnswer',
+      url: '/pages/writeAnswer/writeAnswer?qid='+qid,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

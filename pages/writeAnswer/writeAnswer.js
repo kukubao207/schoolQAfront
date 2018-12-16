@@ -2,18 +2,23 @@
 // textarea.js
 Page({
   data: {
-    height: 20,
-    focus: false
+    currentInput: '',
+    questionId: '',
+    ownerId:'',
+    anoymous:'',
   },
-  bindButtonTap() {
+  getInput: function (e) {
     this.setData({
-      focus: true
+      currentInput: e.detail.value
     })
   },
-  bindTextAreaBlur(e) {
-    console.log(e.detail.value)
+  answer: function(e) {
+    
   },
-  bindFormSubmit(e) {
-    console.log(e.detail.value.textarea)
+  onLoad:function(option){
+    console.log(option)
+    this.setData({
+      qid: option.qid
+    })
   }
 })

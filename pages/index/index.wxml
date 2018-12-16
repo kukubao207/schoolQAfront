@@ -31,7 +31,7 @@
                             <a>{{item.answerCount}} 回答 </a>
                         </view>
                         <view class="follow-it">
-                            <a>3小时前</a>
+                            <a>{{item.createdDate}} </a>
                         </view>
                     </view>
                 </view>

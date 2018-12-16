@@ -59,7 +59,7 @@
                             <a>254 评论 </a>
                         </view>
                         <view class="time">
-                            <a>2 个月前</a>
+                            <a>{{item.createdDate}}</a>
                         </view>
 
                     </view>
