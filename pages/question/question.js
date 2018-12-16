@@ -8,6 +8,7 @@ Page({
     qid:'',
     questionInfo:{},
     answerList:[],
+    isWatched:false,
   },
   //事件处理函数
   bindItemTap: function() {
@@ -33,7 +34,7 @@ Page({
   getQuestionInfo: function () {
     let that = this
     let url = "question/questionInfo/" + that.data.qid
-    var result = util.getData(url).then(function (res) {
+    util.getData(url).then(function (res) {
       that.setData({
         questionInfo: res.data.data,
       });
@@ -42,7 +43,7 @@ Page({
   getAnswerList:function (){
     let that =this
     let url = "question/"+that.data.qid+"/answers/1/8"
-    var result = util.getData(url).then(function (res) {
+    util.getData(url).then(function (res) {
       that.setData({
         answerList: res.data.data.content,
       });
@@ -51,14 +52,65 @@ Page({
   },
   watchThisQuestion:function(){
     let qid = this.data.qid
+    let that = this
      wx.getStorage({
       key: 'openid',
       success: function(res) {
         let openId = res.data
         let url = "user/" + openId + "/watch/question/" + qid
-        console.log(url)
+        let data={}
+        util.postData(url,data).then(function(res){
+          if(res.data.code===200){
+            wx.showToast({
+              title: '关注成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }else if(res.data.code===201){
+            wx.showToast({
+              title: '已经关注过啦',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+          that.setData({
+            isWatched:true
+          })
+        })
       },
       fail: function(res) {
+        console.log(res)
+      },
+    })
+  },
+  unWatchThisQuestion: function () {
+    let qid = this.data.qid
+    let that = this
+    wx.getStorage({
+      key: 'openid',
+      success: function (res) {
+        let openId = res.data
+        let url = "user/" + openId + "/unwatch/question/" + qid
+        util.postData(url, {}).then(function (res) {
+          if (res.data.code === 200) {
+            wx.showToast({
+              title: '取关成功',
+              icon: 'success',
+              duration: 2000
+            })
+          } else if (res.data.code === 201) {
+            wx.showToast({
+              title: '已经取关过啦',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+          that.setData({
+            isWatched: false
+          })
+        })
+      },
+      fail: function (res) {
         console.log(res)
       },
     })

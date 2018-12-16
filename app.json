@@ -5,7 +5,8 @@
     "pages/notify/notify",
     "pages/more/more",
     "pages/answer/answer",
-    "pages/question/question"
+    "pages/question/question",
+    "pages/writeAnswer/writeAnswer"
   ],
   "window": {
     "backgroundTextStyle": "light",

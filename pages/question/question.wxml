@@ -19,8 +19,11 @@
                         <text>{{questionInfo.answerCount}}</text>
                     </view>
                 </view>
-                <view class="right" bindtap="watchThisQuestion">
+                <view wx:if="{{!isWatched}}" class="right" bindtap="watchThisQuestion">
                     关注
+                </view>
+                <view wx:else class="right" bindtap="unWatchThisQuestion">
+                  取消关注
                 </view>
             </view>
         </view>
