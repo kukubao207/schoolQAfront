@@ -64,11 +64,11 @@
 }
 
 .toptab.flex-item {
-  background: #f37f7f;
+  background: #f95f5f;  
   color: white
 }
 
 .toptab.flex-item.active {
-  background: #f95f5f;
+  background: #f37f7f;
   font-size: larger
 }

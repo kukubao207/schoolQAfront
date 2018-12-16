@@ -32,8 +32,6 @@ Page({
   },
   onLoad: function () {
     console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
     this.getData();
   },
 
@@ -73,6 +71,10 @@ Page({
       });
       console.log(that.data.feed);
     }).catch(function (e) { return Promise.reject(e); });
+  },
+
+  onShow: function(){
+    this.getData()
   },
 
   refresh: function(){

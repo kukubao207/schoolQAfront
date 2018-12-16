@@ -1,17 +1,33 @@
 /* pages/writeAnswer/writeAnswer.wxss */
 .textarea {
   font-size: 35rpx;
-  margin: 10%;
-  background-color:white;
+  margin: 5% 8% 0% 8%;
+  padding: 2% 0 2% 2%;
+  background-color: white;
   width: 80%;
   height: 600rpx;
+  border: 5rpx solid #fac3cc;
+  border-radius: 10rpx
 }
 .button {
-  margin: 20%;
-  border-radius: 50rpx;
-  border: 1rpx solid;
+  /* margin: 20%; */
+  border-radius: 40rpx;
+  border: 3rpx solid #fac3cc;
+  background-color: #ff3333;
+  color: white;
+  position: fixed;
+  bottom: 5%;
+  margin: 0 10%;
+  width: 80%
 }
 
 .switchButton {
+  margin-top: 3%;
   text-align: center;
+}
+
+.wx-switch-input::after{
+/* width: 40rpx !important; */
+/* height: 36rpx !important; */
+color: #ff3333 !important;
 }

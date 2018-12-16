@@ -10,11 +10,8 @@
     <!-- <view class="search-right flex-item" bindtap="upper"> -->
     <view class="search-right flex-item" bindtap="bindAskTap">
       <!-- <view> -->
-        <image class="ask" src="../../images/ask.png"></image>
-        <!-- <view class="ask-text">
-          <text>提问</text>
-        </view> -->
-      <!-- </view> -->
+      <image class="ask" src="../../images/ask.png"></image>
+      <text class="ask-text">提问</text>
     </view>
   </view>
 
