@@ -122,5 +122,12 @@ Page({
         console.log(res)
       },
     })
+  },
+  onShow: function(){
+    console.log('page question onShow')
+    //第二步，加载问题详细数据questionInfo
+    this.getQuestionInfo();
+    //第三步，加载问题的回答列表answerList
+    this.getAnswerList();
   }
 })

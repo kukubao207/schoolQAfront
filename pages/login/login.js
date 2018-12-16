@@ -17,7 +17,6 @@ Page({
     })
   },
   login(e) {
-    console.log(e.detail.userInfo)
     wx.login({
       success: res => {
         wx.request({
@@ -33,6 +32,7 @@ Page({
           success: res => {
             console.log(res.data)
             wx.setStorageSync('openid', res.data.data.openid)
+            wx.setStorageSync('ownerid', res.data.data.id)
             wx.switchTab({
               url: '/pages/index/index',
             })

@@ -42,7 +42,7 @@ function postData(url,data) {
     wx.request({
       url: "http://" + app.globalData.productIp + ":" + app.globalData.productPort + "/" + url,
       method: "POST",
-      data: {},
+      data: data,
       header: {
         //'Content-Type': 'application/json'
       },
