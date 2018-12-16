@@ -8,6 +8,7 @@ Page({
     userInfo: {},
     qid:'',
     questionInfo:{},
+    answerList:[],
   },
   //事件处理函数
   bindItemTap: function() {
@@ -25,15 +26,16 @@ Page({
     console.log(qid);
     //第二步，加载问题详细数据questionInfo
     this.getQuestionInfo();
-
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+    //第三步，加载问题的回答列表answerList
+    this.getAnswerList();
+    // var that = this
+    // //调用应用实例的方法获取全局数据
+    // app.getUserInfo(function(userInfo){
+    //   //更新数据
+    //   that.setData({
+    //     userInfo:userInfo
+    //   })
+    // })
   },
   tapName: function(event){
     console.log(event)
@@ -47,5 +49,17 @@ Page({
         questionInfo: res.data.data,
       });
     }).catch(function (e) { return Promise.reject(e); });
+  },
+  getAnswerList:function (){
+    let that =this
+    let url = "http://localhost:8102/question/"+that.data.qid+"/answers/1/8"
+    var result = util.getData(url).then(function (res) {
+      
+      that.setData({
+        answerList: res.data.data.content,
+      });
+      console.log(that.data.answerList);
+    }).catch(function (e) { return Promise.reject(e); });
   }
+  
 })
