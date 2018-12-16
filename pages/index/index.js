@@ -4,19 +4,24 @@ var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
+    page: 1,
     feed: [],
     feed_length: 0
   },
-
   //事件处理函数
-  bindItemTap: function() {
+  bindItemTap: function(e) {
+    console.log(e)
     wx.navigateTo({
       url: '../answer/answer'
     })
   },
-  bindQueTap: function() {
+  bindQueTap: function(e) {
+    console.log(e)
+    let qid = e.currentTarget.dataset.qid;
+    app.requestDetailId = qid
+    console.log(qid)
     wx.navigateTo({
-      url: '../question/question'
+      url: '../question/question?id='+qid
     })
   },
 
@@ -41,9 +46,6 @@ Page({
     console.log("lower")
   },
 
-  //scroll: function (e) {
-  //  console.log("scroll")
-  //},
 
   //网络请求数据, 实现首页刷新
   refresh0: function(){
@@ -59,13 +61,18 @@ Page({
 
   //使用本地 fake 数据实现刷新效果
   getData: function(){
-    var feed = util.getData2();
-    console.log("loaddata");
-    var feed_data = feed.data;
-    this.setData({
-      feed:feed_data,
-      feed_length: feed_data.length
-    });
+    let that = this
+    console.log(that.data.page)
+    let urllll = "http://localhost:8102/question/list/"+that.data.page+"/8"
+    var result = util.getData(urllll).then(function (res) {
+      console.log("------------");
+      console.log(res.data.data.content);
+      that.setData({
+        feed: res.data.data.content,
+        feed_length: res.data.data.content.length
+      });
+      console.log(that.data.feed);
+    }).catch(function (e) { return Promise.reject(e); });
   },
 
   refresh: function(){
@@ -98,7 +105,7 @@ Page({
       icon: 'loading',
       duration: 4000
     })
-    var next = util.getNext();
+    var next = util.getData();
     console.log("continueload");
     var next_data = next.data;
     this.setData({

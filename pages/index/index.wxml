@@ -14,31 +14,21 @@
 
     <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
         <view class="feed-item">
-            <!-- <view class="feed-source">
-                <a class="">
-                    <v iew class="avatar">
-                        <image src="{{item.feed_source_img}}"></image>
-                    </view>
-                    <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
-                </a>
-                <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
-            </view> -->
             <view class="feed-content">
                 <!--问题-->
-                <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
+                <view class="question" bindtap="bindQueTap" data-qid="{{item.id}}">
                     <a class="question-link">
-                        <text>{{item.question}}</text>
+                        <text>{{item.title}}</text>
                     </a>
                 </view>
                 <!--回答-->
                 <view class="answer-body">
-                    <view bindtap="bindItemTap">
-                        <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
+                    <view bindtap="bindItemTap" data-hi="WeChat">
+                        <text class="answer-txt" aid="{{item.answerVo.id}}">{{item.answerVO.answerContent}}</text>
                     </view>
-                    <view class="answer-actions" bindtap="bindItemTap">
-                        
+                    <view class="answer-actions">
                         <view class="comments dot">
-                            <a>{{item.comment_num}} 评论 </a>
+                            <a>{{item.answerCount}} 评论 </a>
                         </view>
                         <view class="follow-it">
                             <a>关注问题</a>

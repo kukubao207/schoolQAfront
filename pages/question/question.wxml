@@ -3,10 +3,10 @@
     <view class="question-wrp">
         <view class="question-item">
             <view class="que-title">
-                选择 Kindle 而不是纸质书的原因是什么？
+                {{questionInfo.title}}
             </view>
             <view class="que-content">
-                WEB前端*不靠谱天气预报员*想做代码小仙女
+                {{questionInfo.content}}
             </view>
             <view class="que-follow">
                 <view class="left">

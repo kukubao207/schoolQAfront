@@ -1,0 +1,5 @@
+/* pages/login/login.wxss */
+/** 修改button默认的点击态样式类**/
+.button-hover {
+  background-color: rgba(0, 0, 255, 0.158);
+}
