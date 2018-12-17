@@ -16,7 +16,7 @@
 
 
   <view class="my">
-    <view class="my-item flex-wrp">
+    <view class="my-item flex-wrp" bindtap="bindMyWatchPerson">
       <view class="myitem-icon flex-item" >
         <image src="../../images/eye.png"></image>
       </view>

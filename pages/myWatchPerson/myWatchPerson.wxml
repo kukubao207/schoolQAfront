@@ -1,0 +1,15 @@
+<!--pages/myWatchPerson/myWatchPerson.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <view class="feed-item">
+      <view class="notify-item flex-wrp">
+        <view class="avatar flex-item">
+          <image src="{{item.avatarUrl}}"></image>
+        </view>
+        <view class="notify-content flex-item">
+          <text>{{item.nickName}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
