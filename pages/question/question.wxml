@@ -44,7 +44,7 @@
             <view class="feed-source">
                 <a class="" bindTap="">
                     <view class="avatar">
-                        <image src="../../images/icon1.jpeg"></image>
+                        <image src="{{item.avatarUrl}}"></image>
                     </view>
                     <text>{{item.ownerName}}</text>
                 </a>
@@ -56,7 +56,7 @@
                     </view>
                     <view class="answer-actions">
                         <view class="comments dot">
-                            <a>254 评论 </a>
+                            <a>{{item.commentCount}} 评论 </a>
                         </view>
                         <view class="time">
                             <a>{{item.createdDate}}</a>
