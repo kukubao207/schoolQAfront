@@ -133,7 +133,6 @@ Page({
       that.setData({
         isWatched:res.data.data
       })
-      consolo.log(that.data.isWatched)
     })
   },
   // onShow: function(){

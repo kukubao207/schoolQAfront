@@ -16,10 +16,10 @@
   </view>
 
   <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-    <view class="feed-item">
+    <view class="feed-item" bindtap="bindQueTap" data-qid="{{item.id}}">
       <view class="feed-content">
         <!--问题-->
-        <view class="question" bindtap="bindQueTap" data-qid="{{item.id}}">
+        <view class="question">
           <a class="question-link">
             <text>{{item.title}}</text>
           </a>

@@ -84,6 +84,7 @@
 .answer-content{
     padding: 30rpx 40rpx;
     background: #ffffff;
+    width: 670rpx;
 }
 .answer-content text{
     font-size: 32rpx;
