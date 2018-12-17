@@ -24,7 +24,7 @@ Page({
     this.getFollows();
     this.getMoments();
   },
-
+  
   getFollows: function() {
     let that = this;
     let ownerid = wx.getStorageSync('ownerid');
@@ -37,14 +37,14 @@ Page({
         })
       } else {
         wx.showToast({
-          title: '获取关注者列表失败，请稍后再试！',
+          title: '获取数据失败！',
           icon: 'fail',
           duration: 2000
         })
       }
     }).catch(err => {
       wx.showToast({
-        title: '网络请求失败，请重试',
+        title: '网络请求失败!',
         icon: 'fail',
         duration: 2000
       })
@@ -53,6 +53,7 @@ Page({
 
   getMoments: function() {
     let that = this;
+    let ownerid = wx.getStorageSync('ownerid');
     util.getData('answer/' + ownerid + '/commentList/' + that.data.follow_page + '/' + that.data.follow_page_size).then(res => {
       console.log(res);
       if (res.code === 200) {
