@@ -12,7 +12,7 @@
                 <view class="left">
                     <view class="watch">
                         <image src="../../images/eye.png"></image>
-                        <text>3316</text>
+                        <text>{{questionInfo.watchedCount}}</text>
                     </view>
                     <view class="comment">
                         <image src="../../images/comment2.png"></image>
@@ -32,9 +32,9 @@
                 <image src="../../images/invite.png"></image>
                 <text>邀请回答</text>
             </view>
-            <view class="write flex-item">
+            <view class="write flex-item" bindtap="writeAnswer">
                 <image src="../../images/write.png"></image>
-                <text bindtap="writeAnswer">写回答</text>
+                <text>写回答</text>
             </view>
         </view>
     </view>
