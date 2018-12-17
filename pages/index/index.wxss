@@ -12,7 +12,7 @@
 }
 
 .container .search-left {
-  flex: 7.5;
+  flex: 7;
   background: #f37f7f;
   text-align: left;
   margin-right: 14rpx
@@ -37,12 +37,12 @@
 }
 
 .container .search .search-right {
-  flex: 1.5;
+  flex: 1.7;
   width: 80rpx;
   text-align: center;
   display: flex;
   align-items: center;
-  font-size: 20rpx;
+  font-size: 30rpx;
   color: white;
 }
 

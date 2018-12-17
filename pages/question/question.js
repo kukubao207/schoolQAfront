@@ -26,6 +26,8 @@ Page({
     this.getQuestionInfo();
     //第三步，加载问题的回答列表answerList
     this.getAnswerList();
+    //第四步，加载是否已关注该问题
+    this.getWatchStatus();
   },
   tapName: function(event){
     console.log(event)
@@ -121,6 +123,18 @@ Page({
       fail: function (res) {
         console.log(res)
       },
+    })
+  },
+  getWatchStatus: function(){
+    let that = this
+    let openid=wx.getStorageSync("openid")
+    let url = "user/"+openid+"/watched/question/"+this.data.qid
+    util.getData(url).then(function(res){
+      console.log(res);
+      that.setData({
+        isWatched:res.data.data
+      })
+      consolo.log(that.data.isWatched)
     })
   },
   onShow: function(){

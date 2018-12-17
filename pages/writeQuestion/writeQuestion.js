@@ -3,18 +3,11 @@ var util = require('../../utils/util.js')
 
 var app = getApp()
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     title: "",
     content: "",
     ownerId: ""
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     let ownerid = wx.getStorageSync('ownerid')
     this.setData({
@@ -25,21 +18,17 @@ Page({
   updateTitle: function(e) {
     let that = this;
     let title = e.detail.value
-    console.log(title);
     that.setData({
       title: title
     });
-    console.log(that.data)
   },
 
   updateDescription: function(e) {
     let that = this;
     let description = e.detail.value;
-    console.log(description);
     that.setData({
       content: description
     });
-    console.log(that.data)
   },
 
   submitNewQuestion() {
