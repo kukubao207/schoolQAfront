@@ -18,6 +18,11 @@ Page({
       url: '../personalInfo/personalInfo'
     })
   },
+  bindMyWatchPerson: function() {
+    wx.navigateTo({
+      url: '../myWatchPerson/myWatchPerson'
+    })
+  },
   onLoad: function () {
     let that=this
     console.log('onLoadMore')

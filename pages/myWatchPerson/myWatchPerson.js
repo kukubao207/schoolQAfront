@@ -1,4 +1,4 @@
-// pages/personalInfo/personalInfo.js
+// pages/myWatchPerson/myWatchPerson.js
 var util = require('../../utils/util.js')
 var app = getApp()
 Page({
@@ -7,10 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ifGetUserInfo: true,
-    userInfo: {},
-    curWord : 0,
-    maxWord : 50
+    page: 1,
+    feed: [],
+    feed_length: 0,
+    ownerId: 0
   },
 
   /**
@@ -18,34 +18,13 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    console.log('onLoadMore')
-    // 查看是否授权
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success(res) {
-              that.setData({
-                userInfo: res.userInfo,
-                ifGetUserInfo: false
-              })
-            }
-          })
-        }
-      }
-    })
-  },
 
-  limit: function(e) {
-    var value = e.detail.value;
-    var length = parseInt(value.length);
-    if(length > this.data.maxWord) {
-      return;
-    }
+    var oid = wx.getStorageSync('ownerid')
     this.setData({
-      curWord: length
+      ownerId: oid
     });
+    console.log(that.data.ownerId)
+    this.getData();
   },
 
   /**
@@ -55,11 +34,26 @@ Page({
 
   },
 
+  getData: function() {
+    let that = this
+    console.log("page=" + that.data.page)
+    let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/8"
+    // let url = that.data.ownerId + "/watchList/" + that.data.page + "/8"
+    var tmp = util.getData(url).then(function(res) {
+      that.setData({
+        feed: res.data.data.content,
+        feed_length: res.data.data.content.length
+      });
+      console.log(that.data.feed)
+      console.log(that.data.feed_length)
+    }).catch (function(e) { return Promise.reject(e); });
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData()
   },
 
   /**
