@@ -13,6 +13,11 @@ Page({
       url: '../more/more'
     })
   },
+  bindPersonalInfoTap: function() {
+    wx.navigateTo({
+      url: '../personalInfo/personalInfo'
+    })
+  },
   onLoad: function () {
     let that=this
     console.log('onLoadMore')

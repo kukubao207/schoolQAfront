@@ -6,7 +6,7 @@
       <view class="avatar flex-item">
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       </view>
-      <view class="user-info flex-item">
+      <view class="user-info flex-item" bindtap="bindPersonalInfoTap">
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         <text class="edit">查看或编辑个人主页</text>
       </view>
