@@ -6,7 +6,8 @@ Page({
   data: {
     motto: '知乎--微信小程序版',
     answerInfo: {},
-    qusetionInfo: {}
+    qusetionInfo: {},
+    isWatched: false,
   },
   
   onLoad: function (option) {
@@ -23,6 +24,15 @@ Page({
         answerInfo: res.data.data,
       });
       console.log(that.data.answerInfo)
+      let openid = wx.getStorageSync("openid")
+      let url = "user/" + openid + "/watched/user/" +res.data.data.ownerId
+      console.log(url)
+      util.getData(url).then(function (res) {
+        that.setData({
+          isWatched: res.data.data,
+        })
+        console.log(that.data.isWatched)
+      })
     }).catch(function (e) { return Promise.reject(e); });
   },
   getQuestionInfo: function (qid) {
@@ -32,10 +42,43 @@ Page({
       that.setData({
         questionInfo: res.data.data,
       });
-      console.log(that.data.questionInfo)
     }).catch(function (e) { return Promise.reject(e); });
   },
-  tapName: function (event) {
-    console.log(event)
+  watchUser: function (e) {
+    console.log(e)
+    let that = this
+    let openid = wx.getStorageSync("openid")
+    let url = "/user/" + openid + "/watch/user/" + e.currentTarget.dataset.ownerid
+    util.postData(url,{}).then(function(res){
+      console.log(res)
+      if(res.data.data.code===200){
+        that.setData({
+          isWatched:true
+        })
+      }else if(res.data.data.code===201){
+        wx.showToast({
+          title: '已经关注过啦',
+        })
+      }
+    })
   },
+  unWatchUser: function (e) {
+    console.log(e)
+    let that = this
+    let openid = wx.getStorageSync("openid")
+    let url = "/user/" + openid + "/unwatch/user/" + e.currentTarget.dataset.ownerid
+    util.postData(url, {}).then(function (res) {
+      console.log(res)
+      if (res.data.data.code === 200) {
+        that.setData({
+          isWatched: false
+        })
+      } else if(res.data.data.code===201) {
+        wx.showToast({
+          title: '已经取关注过啦',
+        })
+      }
+    })
+  },
+
 })

@@ -13,7 +13,7 @@
                 <text class="answerer-name">{{answerInfo.ownerName}}</text>
                 <text class="answerer-des">{{answerInfo.individual}}</text>
             </view>
-            <view class="follow flex-item">
+            <view class="follow flex-item" bindtap="watchUser" data-ownerid="{{answerInfo.ownerId}}">
                 <text>十 关注</text>
             </view>
         </view>
