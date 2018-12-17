@@ -34,7 +34,7 @@
   position: fixed;
   display: block;
   margin: 0 auto;
-  bottom: 0;
+  bottom: 3%;
   left: 5%;
   right: 5%;
 }
@@ -47,7 +47,7 @@
 .icon .icon-avatar {
   flex: 1;
   display: inline-block;
-  width: 100rpx;
-  height: 100rpx;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 80rpx;
 }
