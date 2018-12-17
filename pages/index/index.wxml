@@ -26,7 +26,7 @@
         </view>
         <!--回答-->
         <view class="answer-body">
-          <view bindtap="bindItemTap" data-hi="WeChat">
+          <view>
             <text class="answer-txt" aid="{{item.answerVo.id}}">{{item.answerVO.answerContent}}</text>
           </view>
           <view class="answer-actions">

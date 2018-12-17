@@ -57,7 +57,6 @@ Page({
       that.setData({
         answerList: res.data.data.content,
       });
-      console.log(that.data.answerList);
     }).catch(function (e) { return Promise.reject(e); });
   },
   watchThisQuestion:function(){
@@ -137,11 +136,20 @@ Page({
       consolo.log(that.data.isWatched)
     })
   },
-  onShow: function(){
-    console.log('page question onShow')
-    //第二步，加载问题详细数据questionInfo
-    this.getQuestionInfo();
-    //第三步，加载问题的回答列表answerList
-    this.getAnswerList();
+  // onShow: function(){
+  //   console.log('page question onShow')
+  //   //第二步，加载问题详细数据questionInfo
+  //   this.getQuestionInfo();
+  //   //第三步，加载问题的回答列表answerList
+  //   this.getAnswerList();
+  // }
+
+  tapAnswer: function(e){
+    let that = this
+    let aid = e.currentTarget.dataset.aid;
+    let qid = e.currentTarget.dataset.qid;
+    wx.navigateTo({
+      url: '../answer/answer?aid=' + aid + '&qid=' + qid
+    })
   }
 })

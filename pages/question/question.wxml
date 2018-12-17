@@ -55,7 +55,7 @@
                 <text>{{item.ownerName}}</text>
               </view>
             </view>
-            <view class="feed-content">
+            <view class="feed-content" bindtap="tapAnswer" data-aid="{{item.id}}" data-qid="{{item.questionId}}">
                 <view class="answer-body">
                     <view>
                         <text class="answer-txt">{{item.answerContent}}</text>

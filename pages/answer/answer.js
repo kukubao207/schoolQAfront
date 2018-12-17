@@ -5,26 +5,37 @@ var app = getApp()
 Page({
   data: {
     motto: '知乎--微信小程序版',
-    userInfo: {}
+    answerInfo: {},
+    qusetionInfo: {}
   },
-  //事件处理函数
-  toQuestion: function() {
-    wx.navigateTo({
-      url: '../question/question'
-    })
-  },
-  onLoad: function () {
+  
+  onLoad: function (option) {
     console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+    console.log(option)
+    this.getQuestionInfo(option.qid)
+    this.getAnswerInfo(option.aid)
   },
-  tapName: function(event){
+  getAnswerInfo: function(aid) {
+    let that = this
+    let url = "answer/" + aid
+    util.getData(url).then(function (res) {
+      that.setData({
+        answerInfo: res.data.data,
+      });
+      console.log(that.data.answerInfo)
+    }).catch(function (e) { return Promise.reject(e); });
+  },
+  getQuestionInfo: function (qid) {
+    let that = this
+    let url = "question/questionInfo/" + qid
+    util.getData(url).then(function (res) {
+      that.setData({
+        questionInfo: res.data.data,
+      });
+      console.log(that.data.questionInfo)
+    }).catch(function (e) { return Promise.reject(e); });
+  },
+  tapName: function (event) {
     console.log(event)
-  }
+  },
 })

@@ -11,17 +11,16 @@ Page({
   //跳转到问题页
   bindQueTap: function(e) {
     let qid = e.currentTarget.dataset.qid;
-    app.requestDetailId = qid
-    console.log(qid)
     wx.navigateTo({
       url: '../question/question?id='+qid
     })
   },
   //跳转到回答页
-  bindItemTap: function (e) {
-    console.log(e)
+  bindAnswerTap: function (e) {
+    let aid = e.currentTarget.dataset.aid;
+    let qid = e.currentTarget.dataset.qid;
     wx.navigateTo({
-      url: '../answer/answer'
+      url: '../answer/answer?aid='+aid+'&qid='+qid
     })
   },
   //跳转到提问页
@@ -35,6 +34,7 @@ Page({
     this.setData({
       page:1
     })
+    this.getData()
   },
 
   upper: function () {
@@ -73,7 +73,7 @@ Page({
     }).catch(function (e) { return Promise.reject(e); });
   },
   onShow: function(){
-    this.getData()
+    //this.getData()
   },
   nextLoad: function(){
     console.log(this.data.page)

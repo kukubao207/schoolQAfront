@@ -27,7 +27,6 @@ function getData(url){
         //'Content-Type': 'application/json'
       },
       success: function(res) {
-        console.log("success")
         resolve(res)
       },
       fail: function (res) {
@@ -47,7 +46,6 @@ function postData(url,data) {
         //'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log("success")
         resolve(res)
       },
       fail: function (res) {
