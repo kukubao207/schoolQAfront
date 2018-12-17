@@ -40,7 +40,7 @@
     </view>
 
     <block wx:for="{{answerList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-      <view bindtap="bindItemTap" class="feed-item">
+      <view bindtap="tapAnswer" data-aid="{{item.id}}" data-qid="{{item.questionId}}" class="feed-item">
             <view class="feed-source">
               <view  wx:if="{{item.anoymous}}">
                 <view class="avatar">
@@ -55,7 +55,7 @@
                 <text>{{item.ownerName}}</text>
               </view>
             </view>
-            <view class="feed-content" bindtap="tapAnswer" data-aid="{{item.id}}" data-qid="{{item.questionId}}">
+            <view class="feed-content">
                 <view class="answer-body">
                     <view>
                         <text class="answer-txt">{{item.answerContent}}</text>
