@@ -7,7 +7,8 @@
     "pages/answer/answer",
     "pages/question/question",
     "pages/writeAnswer/writeAnswer",
-    "pages/writeQuestion/writeQuestion"
+    "pages/writeQuestion/writeQuestion",
+    "pages/personalInfo/personalInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
