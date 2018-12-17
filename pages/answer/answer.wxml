@@ -13,8 +13,11 @@
                 <text class="answerer-name">{{answerInfo.ownerName}}</text>
                 <text class="answerer-des">{{answerInfo.individual}}</text>
             </view>
-            <view class="follow flex-item" bindtap="watchUser" data-ownerid="{{answerInfo.ownerId}}">
+            <view wx:if="{{!isWatched}}" class="follow flex-item" bindtap="watchUser" data-ownerid="{{answerInfo.ownerId}}">
                 <text>十 关注</text>
+            </view>
+            <view wx:else class="follow flex-item" bindtap="unWatchUser" data-ownerid="{{answerInfo.ownerId}}">
+                <text>- 取关</text>
             </view>
         </view>
     </view>
