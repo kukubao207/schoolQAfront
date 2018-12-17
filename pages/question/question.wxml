@@ -43,10 +43,14 @@
       <view bindtap="bindItemTap" class="feed-item">
             <view class="feed-source">
                 <a class="" bindTap="">
-                    <view class="avatar">
-                        <image src="{{item.avatarUrl}}"></image>
+                    <view wx:if="{{item.anoymous}}" class="avatar">
+                      <image src="../../images/anoymous_user.png"></image>
+                      <text>匿名用户</text>
                     </view>
-                    <text>{{item.ownerName}}</text>
+                    <view wx:else class="avatar">
+                      <image src="{{item.avatarUrl}}"></image>
+                      <text>{{item.ownerName}}</text>
+                    </view>
                 </a>
             </view>
             <view class="feed-content">

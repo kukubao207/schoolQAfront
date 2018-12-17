@@ -35,7 +35,7 @@ Page({
       'questionId':this.data.questionId,
       'anoymous':this.data.anoymous,
       'answerContent':this.data.currentInput,
-      'onwerId': ownerid};
+      'ownerId': ownerid};
     let url = "answer/save"
     util.postData(url, jsonData).then(function (res) {
       console.log(res)
