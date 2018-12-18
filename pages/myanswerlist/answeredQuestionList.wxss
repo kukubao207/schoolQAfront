@@ -1,0 +1,9 @@
+/* pages/myanswerlist/answeredQuestionList.wxss */
+
+.question-content {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+}
+.question-content text {
+  color: #BDBDBD;
+}

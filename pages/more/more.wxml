@@ -44,7 +44,7 @@
       <view class="myitem-icon flex-item" >
         <image src="../../images/book.png"></image>
       </view>
-      <view class="myitem-name flex-item">
+      <view class="myitem-name flex-item" bindtap='navigatetoMyAnswered'>
         <text>我的回答</text>
       </view>
     </view>
