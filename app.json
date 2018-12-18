@@ -8,16 +8,12 @@
     "pages/question/question",
     "pages/writeAnswer/writeAnswer",
     "pages/writeQuestion/writeQuestion",
-<<<<<<< HEAD
     "pages/personalInfo/personalInfo",
     "pages/myWatchPerson/myWatchPerson",
     "pages/comment/comment",
     "pages/myWatchQuestion/myWatchQuestion",
-    "pages/myquestionlist/questionList"
-=======
     "pages/myquestionlist/questionList",
     "pages/myanswerlist/answeredQuestionList"
->>>>>>> origin/add_answerlist
   ],
   "window": {
     "backgroundTextStyle": "light",
