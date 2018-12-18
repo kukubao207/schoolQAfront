@@ -3,12 +3,10 @@
 }
 
 .top {
-  width: 100rpx;
-  height: 100rpx;
+  width: 140rpx;
+  height: 140rpx;
   padding: 40rpx;
-  /* border: 5rpx solid #fac3cc; */
-  border-radius: 250rpx;
-  margin: 35rpx auto 35rpx auto;
+  margin: 25rpx auto 25rpx auto;
   align-items: center;
 }
 
