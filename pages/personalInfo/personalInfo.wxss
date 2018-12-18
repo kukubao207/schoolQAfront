@@ -3,10 +3,13 @@
 }
 
 .top {
-  width: 250rpx;
-  height: 250rpx;
-  margin: 0 auto;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 40rpx;
   /* border: 5rpx solid #fac3cc; */
+  border-radius: 250rpx;
+  margin: 35rpx auto 35rpx auto;
+  align-items: center;
 }
 
 /* .top open-data {
