@@ -9,9 +9,6 @@ Page({
     feed_length: 0
   },
   onLoad: function () {
-    this.setData({
-      page: 1
-    })
     this.getData()
   },
   //跳转到问题页
@@ -23,7 +20,6 @@ Page({
   },
   //跳转到提问页
   bindAskTap: function(e){
-    console.log(e);
     wx.navigateTo({
       url:'../writeQuestion/writeQuestion'
     })
@@ -31,7 +27,7 @@ Page({
   //刷新数据
   getData: function(){
     let that = this
-    let url = "question/list/"+that.data.page+"/6"
+    let url = "question/list/"+that.data.page+"/10"
     var result = util.getData(url).then(function (res) {
       that.setData({
         feed: res.data.data.content,
@@ -40,11 +36,9 @@ Page({
     }).catch(function (e) { return Promise.reject(e); });
   },
   onPullDownRefresh: function(){
-    console.log("kkk")
     let that = this
-    let url = "question/list/1/6"
+    let url = "question/list/1/10"
     var result = util.getData(url).then(function (res) {
-      console.log(res);
       that.setData({
         feed: res.data.data.content,
         feed_length: res.data.data.content.length,
@@ -53,12 +47,10 @@ Page({
     });
   },
   onReachBottom: function(){
-    console.log("hhh")
     var that = this;
     var pagenum = this.data.page + 1; //获取当前页数并+1
-    let url = 'question/list/' + pagenum + '/6';
+    let url = 'question/list/' + pagenum + '/10';
     util.getData(url).then(function (res) {
-      console.log(res)
       if (res.data.code === 200) {
         if (res.data.data.content.length !== 0) {
           that.setData({
@@ -66,7 +58,6 @@ Page({
             feed_length: that.data.feed_length + res.data.data.content.length,
             page: pagenum,
           });
-          console.log(that.data.feed)
         } else {
           console.log("已经没有更多问题了")
         }
