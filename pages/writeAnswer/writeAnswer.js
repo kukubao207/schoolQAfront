@@ -33,7 +33,7 @@ Page({
     let qid = this.data.questionId
     let jsonData={
       'questionId':this.data.questionId,
-      'anoymous':this.data.anoymous,
+      'anonymous':this.data.anoymous,
       'answerContent':this.data.currentInput,
       'ownerId': ownerid};
     let url = "answer/save"

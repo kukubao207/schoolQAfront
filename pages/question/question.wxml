@@ -42,18 +42,18 @@
     <block wx:for="{{answerList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
       <view bindtap="tapAnswer" data-aid="{{item.id}}" data-qid="{{item.questionId}}" class="feed-item">
             <view class="feed-source">
-              <view  wx:if="{{item.anoymous}}">
+              <!-- <view  wx:if="{{item.anoymous}}">
                 <view class="avatar">
                   <image src="../../images/anoymous_user.png"></image>
                 </view>
                 <text>匿名用户</text>
               </view>
-              <view wx:else>
+              <view wx:else> -->
                 <view class="avatar">
                   <image src="{{item.avatarUrl}}"></image>
                 </view>
                 <text>{{item.ownerName}}</text>
-              </view>
+              <!-- </view> -->
             </view>
             <view class="feed-content">
                 <view class="answer-body">
