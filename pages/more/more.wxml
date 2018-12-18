@@ -24,7 +24,7 @@
         <text>我的关注人</text>
       </view>
     </view>
-    <view class="my-item flex-wrp">
+    <view class="my-item flex-wrp" bindtap="bindMyWatchQuestion">
       <view class="myitem-icon flex-item" >
         <image src="../../images/star.png"></image>
       </view>

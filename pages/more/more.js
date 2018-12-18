@@ -23,6 +23,13 @@ Page({
       url: '../myWatchPerson/myWatchPerson'
     })
   },
+
+  bindMyWatchQuestion: function() {
+    wx.navigateTo({
+      url: '../myWatchQuestion/myWatchQuestion'
+    })
+  },
+
   onLoad: function () {
     let that=this
     console.log('onLoadMore')

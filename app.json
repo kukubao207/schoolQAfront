@@ -10,7 +10,11 @@
     "pages/writeQuestion/writeQuestion",
     "pages/personalInfo/personalInfo",
     "pages/myWatchPerson/myWatchPerson",
+<<<<<<< HEAD
     "pages/comment/comment"
+=======
+    "pages/myWatchQuestion/myWatchQuestion"
+>>>>>>> 5c146248423aa5bc0467d28610783fe6a0b6d580
   ],
   "window": {
     "backgroundTextStyle": "light",

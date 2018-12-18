@@ -1,4 +1,4 @@
-// pages/myWatchPerson/myWatchPerson.js
+// pages/myWatchQuestion/myWatchQuestion.js
 var util = require('../../utils/util.js')
 var app = getApp()
 Page({
@@ -10,28 +10,24 @@ Page({
     page: 1,
     feed: [],
     feed_length: 0,
-    ownerId: 0
+    ownerid: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
-
-    var oid = wx.getStorageSync('ownerid')
     this.setData({
-      ownerId: oid
-    });
-    console.log(that.data.ownerId)
-    this.getData();
+      page: 1
+    })
+    this.getData()
   },
 
-  upper: function () {
+  upper: function() {
     console.log("upper")
   },
 
-  lower: function (e) {
+  lower: function(e) {
     wx.showNavigationBarLoading();
     var that = this;
     setTimeout(function () {
@@ -41,6 +37,59 @@ Page({
     console.log("lower")
   },
 
+  getData: function() {
+    let that = this
+    
+    var tmp = wx.getStorageSync('ownerid')
+    that.setData({
+      ownerid: tmp
+    })
+    console.log("ownerid=" + that.data.ownerid)
+
+    let url = "user/" + that.data.ownerid + "/watchQuestionList/" + that.data.page + "/8"
+    util.getData(url).then(function (res) {
+      that.setData({
+        feed: res.data.data.content,
+        feed_length: res.data.data.content.length,
+        page: that.data.page
+      });
+      console.log(that.data.feed);
+    }).catch(function (e) { return Promise.reject(e); });
+  },
+
+  bindQueTap: function (e) {
+    let qid = e.currentTarget.dataset.qid;
+    wx.navigateTo({
+      url: '../question/question?id=' + qid
+    })
+  },
+
+  nextLoad: function () {
+    let that = this
+
+    console.log(that.data.page)
+    let newPage = that.data.page + 1
+    let url = "user/" + that.data.ownerid + "/watchQuestionList/" + newPage + "/8"
+    util.getData(url).then(function (res) {
+      console.log(res)
+      if (res.data.code === 200) {
+        if (res.data.data.content.length !== 0) {
+          that.setData({
+            feed: that.data.feed.concat(res.data.data.content),
+            feed_length: that.data.feed_length + res.data.data.content.length,
+            page: newPage,
+          });
+        } else {
+          console.log("已经没有更多的关注问题了")
+        }
+      } else {
+        wx.showToast({
+          title: '抱歉，服务器忙',
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -48,53 +97,11 @@ Page({
 
   },
 
-  getData: function() {
-    let that = this
-    console.log("page=" + that.data.page)
-    let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/8"
-    // let url = that.data.ownerId + "/watchList/" + that.data.page + "/8"
-    var tmp = util.getData(url).then(function(res) {
-      that.setData({
-        feed: res.data.data.content,
-        feed_length: res.data.data.content.length
-      });
-      console.log(that.data.feed)
-      console.log(that.data.feed_length)
-    }).catch (function(e) { return Promise.reject(e); });
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData()
-  },
 
-  nextLoad: function() {
-    console.log("page=" + this.data.page)
-    
-    let that = this
-    let newPage=that.data.page+1
-    let url = "user/" + that.data.ownerId + "/watchList/" + newPage + "/8"
-    
-    util.getData(url).then(function(res){
-      console.log("res=" + res)
-      if(res.data.code === 200) {
-        if(res.data.data.content.length!==0) {
-          that.setData({
-            feed: that.data.feed.concat(res.data.data.content),
-            feed_length: that.data.feed_length + res.data.data.content.length,
-            page: newPage
-          });
-        } else {
-          console.log("已经没有更多的关注用户了")
-        }
-      } else{
-        wx.showToast({
-          title: '抱歉，服务器忙',
-        })
-      }
-    })
   },
 
   /**
