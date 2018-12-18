@@ -52,10 +52,41 @@
   padding: 0 0 8rpx 0;
 }
 
+.notify-item .notify-content .notify-comment,
+.notify-item .notify-content .notify-answer {
+  color: #818a8f;
+  font-size: 24rpx;
+  padding: 8rpx 0 8rpx 0;
+  max-width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notify-item .notify-content .notify-comment text,
+.notify-item .notify-content .notify-answer text {
+  /* color: rgb(85, 82, 82); */
+  font-weight: bolder;
+  display: inline-block;
+}
+
 .notify-item .notify-content .notify-title {
   color: #afafaf;
   font-size: 30rpx;
   line-height: 34rpx;
+  max-width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* 文本最多一行，否则胜率号码 *//* overflow: hidden; *//* text-overflow: ellipsis; *//* white-space: nowrap; */
+}
+
+.notify-item .notify-content .notify-createDate {
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 20rpx;
+  color: #bbb9b9;
 }
 
 .placehold {
@@ -64,11 +95,11 @@
 }
 
 .toptab.flex-item {
-  background: #f95f5f;  
-  color: white
+  background: #f95f5f;
+  color: white;
 }
 
 .toptab.flex-item.active {
   background: #f37f7f;
-  font-size: larger
+  font-size: larger;
 }

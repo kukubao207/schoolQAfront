@@ -21,13 +21,17 @@
     </view> -->
 
     <block wx:for="{{moments}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-      <view class="notify-item flex-wrp">
+      <view class="notify-item flex-wrp" bindtap="navigatorToComment" data-aid="{{item.answerId}}">
         <view class="avatar flex-item">
           <image src="{{item.avatarUrl}}"></image>
         </view>
         <view class="notify-content flex-item">
           <text class="notify-source">{{item.ownerNickName}}  评论了回答</text>
           <text class="notify-title">{{item.answerContent}}</text>
+          <text class="notify-comment"><text>评论：</text>{{item.commentContent}}</text>
+          <view class="notify-createDate">
+            <a>{{item.createdDate}}</a>
+          </view>
         </view>
       </view>
     </block>
@@ -36,13 +40,17 @@
   <view class="ctnt1" hidden="{{currentNavtab==1 ? '' : true}}">
 
     <block wx:for="{{follows}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-      <view class="notify-item flex-wrp" bindtap='navigatorTo' data-qid="{{item.questionId}}">
+      <view class="notify-item flex-wrp" bindtap='navigatorToQuestion' data-qid="{{item.questionId}}">
         <view class="avatar flex-item">
           <image src="{{item.avatarUrl}}"></image>
         </view>
         <view class="notify-content flex-item">
           <text class="notify-source">关注者 {{item.nickName}}  回答了问题</text>
           <text class="notify-title">{{item.questionTitle}}</text>
+          <text class="notify-answer"><text>回答：</text>{{item.answerContent}}</text>
+          <view class="notify-createDate">
+            <a>{{item.createdDate}}</a>
+          </view>
         </view>
       </view>
     </block>
