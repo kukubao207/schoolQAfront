@@ -11,7 +11,6 @@ Page({
   },
   
   onLoad: function (option) {
-    console.log('onLoad')
     console.log(option)
     this.getQuestionInfo(option.qid)
     this.getAnswerInfo(option.aid)
@@ -88,5 +87,9 @@ Page({
     wx.navigateTo({
       url: url,
     })
+  },
+  onShow: function(){
+    this.getQuestionInfo(this.data.questionInfo.id)
+    this.getAnswerInfo(this.data.answerInfo.id)
   }
 })

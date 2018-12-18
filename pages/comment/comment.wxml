@@ -38,7 +38,7 @@
 </scroll-view>
 
 <view class="bottomComment">
-  <input class="bottomInput" placeholder='请随便说点什么吧...' placeholder-class="comment-placeholder" bindinput="updateComment" maxlength="100"></input>
+  <input value="{{commentContent}}" class="bottomInput" placeholder='请随便说点什么吧...' placeholder-class="comment-placeholder" bindinput="updateComment" maxlength="100"></input>
   <button class="bottomButton" bindtap="comment">评论</button>
 </view>
 </view>

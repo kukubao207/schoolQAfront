@@ -7,7 +7,7 @@ Page({
   data: {
     answerid:'',
     commentList:'',
-    commentContent:''
+    commentContent:'',
   },
 
   /**
@@ -58,6 +58,9 @@ Page({
         title: '评论成功',
       })
       that.getCommentData();
+      that.setData({
+        commentContent: ''
+      })
     })
   }
 })

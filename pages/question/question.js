@@ -52,7 +52,7 @@ Page({
   },
   getAnswerList:function (){
     let that =this
-    let url = "question/"+that.data.qid+"/answers/1/8"
+    let url = "question/"+that.data.qid+"/answers/1/100"
     util.getData(url).then(function (res) {
       that.setData({
         answerList: res.data.data.content,
@@ -135,13 +135,13 @@ Page({
       })
     })
   },
-  // onShow: function(){
-  //   console.log('page question onShow')
-  //   //第二步，加载问题详细数据questionInfo
-  //   this.getQuestionInfo();
-  //   //第三步，加载问题的回答列表answerList
-  //   this.getAnswerList();
-  // }
+  onShow: function(){
+    console.log('page question onShow')
+    //第二步，加载问题详细数据questionInfo
+    this.getQuestionInfo();
+    //第三步，加载问题的回答列表answerList
+    this.getAnswerList();
+  },
 
   tapAnswer: function(e){
     let that = this

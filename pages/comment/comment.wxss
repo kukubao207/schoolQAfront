@@ -122,14 +122,16 @@
 } */
 
 .container scroll-view {
-  height: 1100rpx;
   background: white;
   border-radius: 40rpx 40rpx 0 0;
-  border-bottom: #ebebeb solid 5rpx;
+  /* border-bottom: #ebebeb solid 5rpx; */
+  padding-bottom: 200rpx;
 }
 
 .container .bottomComment {
-  height: 65rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0rpx;
 }
 
 .container .bottomComment .bottomInput {
@@ -146,15 +148,15 @@
 }
 
 .container .bottomComment .bottomButton {
-width:100rpx;
-display:inline-block;
-padding:0;
-margin:0;
-line-height:85rpx;
-font-size:24rpx;
-height:85rpx;
-background:rgb(88, 223, 88);
-color:white;
+  width:100rpx;
+  display:inline-block;
+  padding:0;
+  margin:0;
+  line-height:85rpx;
+  font-size:24rpx;
+  height:85rpx;
+  background:rgb(88, 223, 88);
+  color:white;
 
 }
 

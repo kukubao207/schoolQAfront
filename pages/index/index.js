@@ -44,6 +44,7 @@ Page({
         feed_length: res.data.data.content.length,
         page: 1
       });
+      wx.stopPullDownRefresh()
     });
   },
   onReachBottom: function(){
