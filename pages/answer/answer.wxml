@@ -50,7 +50,7 @@
                 </view>
                 <view class="operation-btn flex-item" bindtap="comment" data-answerid="{{answerInfo.id}}">
                     <image src="../../images/comment.png"></image>
-                    <text>302</text>
+                    <text>{{answerInfo.commentCount}}</text>
                 </view>
 
             </view>
