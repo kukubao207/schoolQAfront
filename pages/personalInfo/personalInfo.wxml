@@ -21,14 +21,15 @@
   <view>
     <text>个人简介</text>
     <view style="border: 1px solid #FFA6A6; border-radius: 10px;">
-
-      <textarea placeholder-class="place-holder" maxlength='300' bindinput='limit' maxlength='{{maxWord}}' value="{{text}}" style="font-size: 14px;" />
-
-      <view class="clear">
-        <text style="color: #ccc; font-size: 14px; float: right; margin-right: 2%;">{{curWord}} / {{maxWord}} （最多可写50字）</text>
-      </view>
+      <form bindsubmit="modifyIndividual">
+        <textarea placeholder-class="place-holder" placeholder='{{userInfo.individual}}' maxlength='300' bindinput='limit' bindblur='bindTextAreaBlur' maxlength='{{maxWord}}' value="{{individual}}" style="font-size: 14px;">
+          
+        </textarea>
+        <view class="clear">
+            <text style="color: #ccc; font-size: 14px; float: right; margin-right: 2%;">{{curWord}} / {{maxWord}} （最多可写50字）</text>
+          </view>
+          <button form-type='submit'>提交</button>
+      </form>
     </view>
   </view>
-
-
 </view>

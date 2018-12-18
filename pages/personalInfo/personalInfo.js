@@ -7,10 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ifGetUserInfo: true,
     userInfo: {},
     curWord : 0,
-    maxWord : 50
+    maxWord : 50,
+    ownerId: 0,
+    individual: '',
+    openId: 0
   },
 
   /**
@@ -18,22 +20,64 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    console.log('onLoadMore')
-    // 查看是否授权
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success(res) {
-              that.setData({
-                userInfo: res.userInfo,
-                ifGetUserInfo: false
-              })
-            }
-          })
-        }
+    var oid = wx.getStorageSync('ownerid')
+    var oid2 = wx.getStorageSync('openid')
+    this.setData({
+      ownerId: oid,
+      openId: oid2
+    });
+
+    this.getUser();
+  },
+
+  modifyIndividual: function (e) {
+
+    // this.setData({
+    //   individual: this.data.individual
+    // })
+
+    console.log("individual=" + this.data.individual)
+    let jsonData = {
+      'individual': this.data.individual
+    };
+
+    let url = 'user/individual/' + this.data.openId
+    util.postData(url, jsonData).then(function (res) {
+      console.log("res=" + res)
+      if (res.data.code === 200) {
+        wx.showToast({
+          title: '修改成功',
+          icon: 'success',
+          duration: 2000
+        })
+        setTimeout(
+          function () {
+          }, 1200
+        )
+      } else if (res.data.code !== 201) {
+        wx.showToast({
+          title: '修改失败，请稍后再试',
+          icon: 'fail',
+          duration: 2000
+        })
       }
+    }).catch(function (e) { return Promise.reject(e); });
+  },
+
+  getUser: function() {
+    let that = this
+    let url = "user/info/" + that.data.ownerId
+    
+    var user = util.getData(url).then(function(res){
+      that.setData({
+        userInfo: res.data.data
+      });
+    }).catch(function (e) { return Promise.reject(e); });
+  },
+
+  bindTextAreaBlur: function (e) {
+    this.setData({
+      individual: e.detail.value,
     })
   },
 
@@ -48,6 +92,8 @@ Page({
     });
   },
 
+  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -59,7 +105,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUser()
   },
 
   /**
