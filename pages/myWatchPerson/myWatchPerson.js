@@ -16,7 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this
 
     var oid = wx.getStorageSync('ownerid')
@@ -27,14 +27,14 @@ Page({
     this.getData();
   },
 
-  upper: function () {
+  upper: function() {
     console.log("upper")
   },
 
-  lower: function (e) {
+  lower: function(e) {
     wx.showNavigationBarLoading();
     var that = this;
-    setTimeout(function () {
+    setTimeout(function() {
       wx.hideNavigationBarLoading();
       that.nextLoad();
     }, 1000);
@@ -44,7 +44,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
@@ -53,34 +53,36 @@ Page({
     console.log("page=" + that.data.page)
     let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/8"
     // let url = that.data.ownerId + "/watchList/" + that.data.page + "/8"
-    var tmp = util.getData(url).then(function(res) {
+
+
+    util.getData(url).then(function(res) {
       that.setData({
         feed: res.data.data.content,
-        feed_length: res.data.data.content.length
+        feed_length: res.data.data.content.length,
       });
-      console.log(that.data.feed)
-      console.log(that.data.feed_length)
-    }).catch (function(e) { return Promise.reject(e); });
+    }).catch(function(e) {
+      return Promise.reject(e);
+    });
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getData()
   },
 
   nextLoad: function() {
     console.log("page=" + this.data.page)
-    
+
     let that = this
-    let newPage=that.data.page+1
+    let newPage = that.data.page + 1
     let url = "user/" + that.data.ownerId + "/watchList/" + newPage + "/8"
-    
-    util.getData(url).then(function(res){
+
+    util.getData(url).then(function(res) {
       console.log("res=" + res)
-      if(res.data.code === 200) {
-        if(res.data.data.content.length!==0) {
+      if (res.data.code === 200) {
+        if (res.data.data.content.length !== 0) {
           that.setData({
             feed: that.data.feed.concat(res.data.data.content),
             feed_length: that.data.feed_length + res.data.data.content.length,
@@ -89,7 +91,7 @@ Page({
         } else {
           console.log("已经没有更多的关注用户了")
         }
-      } else{
+      } else {
         wx.showToast({
           title: '抱歉，服务器忙',
         })
@@ -100,35 +102,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

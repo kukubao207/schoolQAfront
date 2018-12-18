@@ -23,11 +23,7 @@
   </view>
   <view class='section'>
     <form bindsubmit="modifyIndividual">
-      <textarea class='textarea' placeholder-class="place-holder" placeholder='{{userInfo.individual}}' auto-focus maxlength='300' bindinput='limit' bindblur='bindTextAreaBlur' maxlength='{{maxWord}}' value="{{individual}}" style="font-size: 14px;" />
-
-      <view class="clear">
-        <text style="color: #ccc; font-size: 14px; float: right; margin-right: 2%;">{{curWord}} / {{maxWord}} （最多可写50字）</text>
-      </view>
+      <textarea class='textarea' placeholder-class="place-holder" placeholder='{{userInfo.individual}}' auto-focus maxlength='300' bindinput='limit' bindblur='bindTextAreaBlur' maxlength='{{maxWord}}' value="{{userInfo.individual}}" style="font-size: 14px;" />
       <button class='button' form-type='submit' bindtap='modify'>提交</button>
     </form>
 

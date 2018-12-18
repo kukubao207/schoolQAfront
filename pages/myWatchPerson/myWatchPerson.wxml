@@ -8,8 +8,9 @@
         </view>
         <view class="notify-content flex-item">
           <text>{{item.nickName}}</text>
+          <!-- <text class="notify-title">{{item.individual}}</text> -->
         </view>
       </view>
     </view>
   </block>
-</scroll-view>
+</scroll-view> 

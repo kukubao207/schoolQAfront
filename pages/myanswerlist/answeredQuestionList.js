@@ -141,5 +141,12 @@ Page({
       this.setData({ loading: false })
       wx.stopPullDownRefresh()
     })
+  },
+  onQuestionTap(e) {
+    let qid = e.currentTarget.dataset.qid;
+    console.log(qid)
+    wx.navigateTo({
+      url: '../question/question?id=' + qid
+    })
   }
 })

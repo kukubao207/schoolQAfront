@@ -34,8 +34,19 @@
 
 .notify-item .notify-content text {
   display: block;
-  font-size: 38rpx;
-  padding: 0 0 8rpx 0;
+  font-size: 28rpx;
+}
+
+.notify-item .notify-content .notify-source {
+  color: #818a8f;
+  font-size: 28rpx;
+  /* padding: 0 0 2rpx 0; */
+}
+
+.notify-item .notify-content .notify-title {
+  color: #afafaf;
+  font-size: 30rpx;
+  line-height: 34rpx;
 }
 
 /*feed-item part is in app.wxss for multiplexing*/
