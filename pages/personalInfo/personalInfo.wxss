@@ -29,3 +29,25 @@
   color: #ccc;
   margin-right: 20rpx;
 }
+
+.textarea {
+  font-size: 35rpx;
+  margin: 5% 8% 0% 8%;
+  padding: 2% 0 2% 2%;
+  background-color: white;
+  width: 80%;
+  height: 300rpx;
+  border: 5rpx solid #fac3cc;
+  border-radius: 10rpx
+}
+.button {
+  /* margin: 20%; */
+  border-radius: 40rpx;
+  border: 3rpx solid #fac3cc;
+  background-color: #ff3333;
+  color: white;
+  position: fixed;
+  bottom: 5%;
+  margin: 0 10%;
+  width: 80%
+}

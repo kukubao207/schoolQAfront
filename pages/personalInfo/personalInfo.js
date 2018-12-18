@@ -30,11 +30,7 @@ Page({
     this.getUser();
   },
 
-  modifyIndividual: function (e) {
-
-    // this.setData({
-    //   individual: e.detail.value.input
-    // })
+  modify: function (e) {
 
     console.log("individual=" + this.data.individual)
     let jsonData = {
@@ -91,7 +87,8 @@ Page({
       return;
     }
     this.setData({
-      curWord: length
+      curWord: length,
+      individual: e.detail.value
     });
   },
 

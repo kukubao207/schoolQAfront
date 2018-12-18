@@ -1,10 +1,10 @@
 <!--pages/myquestionlist/questionList.wxml-->
 <view class='container questionList'>
   <block wx:for='{{myQuestions}}' wx:for-index="idx" wx:for-item="question" data-idx="{{idx}}">
-    <view class="feed-item">
+    <view class="feed-item" bindtap="onQuestionTap" data-qid="{{question.id}}">
       <view class="feed-content">
         <!--问题-->
-        <view class="question" bindtap="bindQueTap" data-qid="{{item.id}}">
+        <view class="question">
           <a class="question-link">
             <text>{{question.title}}</text>
           </a>
