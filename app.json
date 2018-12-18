@@ -11,7 +11,8 @@
     "pages/personalInfo/personalInfo",
     "pages/myWatchPerson/myWatchPerson",
     "pages/comment/comment",
-    "pages/myWatchQuestion/myWatchQuestion"
+    "pages/myWatchQuestion/myWatchQuestion",
+    "pages/myquestionlist/questionList"
   ],
   "window": {
     "backgroundTextStyle": "light",

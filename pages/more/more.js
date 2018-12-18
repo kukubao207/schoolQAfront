@@ -54,5 +54,10 @@ Page({
     wx.navigateTo({
       url: '../more/more'
     })
+  },
+  navigateToMyQuestion: () => {
+    wx.navigateTo({
+      url: '../myquestionlist/questionList',
+    })
   }
 })
