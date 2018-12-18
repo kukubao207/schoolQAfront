@@ -42,5 +42,10 @@ Page({
     wx.navigateTo({
       url: '../myquestionlist/questionList',
     })
+  },
+  navigatetoMyAnswered() {
+    wx.navigateTo({
+      url: '../myanswerlist/answeredQuestionList'
+    })
   }
 })
