@@ -22,6 +22,7 @@ Page({
     let that = this
     var oid = wx.getStorageSync('ownerid')
     var oid2 = wx.getStorageSync('openid')
+    
     this.setData({
       ownerId: oid,
       openId: oid2
@@ -48,9 +49,6 @@ Page({
         })
         setTimeout(
           function () {
-            wx.navigateBack({
-
-            })
           }, 1200
         )
       } else if (res.data.code !== 201) {
