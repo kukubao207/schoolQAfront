@@ -10,7 +10,7 @@
       <text>0 条未读</text>
       <image src="../../images/allread.png"></image>
     </view> -->
-    <view class="notify-item flex-wrp">
+    <!-- <view class="notify-item flex-wrp">
       <view class="avatar flex-item">
         <image src="{{answe}}"></image>
       </view>
@@ -18,7 +18,7 @@
         <text class="notify-source">Rebecca  评论了回答</text>
         <text class="notify-title">C#如何在不覆盖原有文件的情况下直接修改某一部分的内容？</text>
       </view>
-    </view>
+    </view> -->
 
     <block wx:for="{{moments}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
       <view class="notify-item flex-wrp">

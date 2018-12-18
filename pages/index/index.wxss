@@ -15,25 +15,31 @@
   flex: 7;
   background: #f37f7f;
   text-align: left;
-  margin-right: 14rpx
+  margin-right: 14rpx;
 }
 
 .container .search-left input {
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
   height: 65rpx;
   font-size: 26rpx;
+  line-height: 65rpx;
+  margin-top: 0;
+  align-items: center;
+  float: left
 }
 
 .search-placeholder {
   color: white;
-  line-height: 20rpx;
+  line-height: 65rpx;
 }
 
 .container .search .search-left image {
-  display: inline-block;
+  display: flex;
   width: 35rpx;
   height: 35rpx;
   padding: 15rpx 15rpx 15rpx 15rpx;
+  float: left;
 }
 
 .container .search .search-right {
@@ -51,7 +57,7 @@
   height: 50rpx;
   padding: 5rpx;
   display: inline-block;
-  margin-right: 10rpx
+  margin-right: 10rpx;
 }
 
 .container {
