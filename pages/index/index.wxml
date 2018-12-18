@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" class="container" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
 
   <!--搜索框-->
   <view class="search flex-wrp">

@@ -7,7 +7,6 @@ Page({
   checkSession(e) {
     wx.checkSession({
       success: res => {
-        console.log("success to session")
         wx.switchTab({
           url: '/pages/index/index',
         })
@@ -30,7 +29,6 @@ Page({
             userInfo: e.detail.userInfo
           },
           success: res => {
-            console.log(res.data)
             wx.setStorageSync('openid', res.data.data.openid)
             wx.setStorageSync('ownerid', res.data.data.id)
             wx.switchTab({
