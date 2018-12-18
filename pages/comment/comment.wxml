@@ -1,0 +1,39 @@
+<view class="container">
+  <block wx:for="{{commentList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="feed-item">
+            <view class="feed-source">
+              <view  wx:if="{{item.anoymous}}">
+                <view class="avatar">
+                  <image src="../../images/anoymous_user.png"></image>
+                </view>
+                <text>匿名用户</text>
+              </view>
+              <view wx:else>
+                <view class="avatar">
+                  <image src="{{item.avatarUrl}}"></image>
+                </view>
+                <text>{{item.ownerNickName}}</text>
+              </view>
+            </view>
+            <view class="feed-content">
+                <view class="answer-body">
+                    <view>
+                        <text class="answer-txt">{{item.commentContent}}</text>
+                    </view>
+                    <view class="answer-actions">
+                        <!-- <view class="comments dot">
+                            <a>{{item.commentCount}} 评论 </a>
+                        </view> -->
+                        <view class="time">
+                            <a>{{item.createdDate}}</a>
+                        </view>
+                    </view>
+                </view>
+            </view>
+      </view>
+  </block>
+  <view class="bottomComment">
+    <input class="bottomInput" placeholder='请随便说点什么吧...' bindinput="updateComment" maxlength="100"></input>
+    <button class="bottomButton" bindtap="comment">评论</button>
+  </view>
+</view>

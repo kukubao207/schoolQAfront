@@ -3,7 +3,7 @@
 
 <view class="section">
   <form bindsubmit="bindFormSubmit">
-    <textarea class="textarea" placeholder="请说点什么吧" name="textarea" bindinput="getInput" auto-focus maxlength="1500" />
+    <textarea class="textarea" placeholder="请说点什么吧..." name="textarea" bindinput="getInput" auto-focus maxlength="1500" />
     <view class="switchButton">
       <switch unchecked bindchange="switchChange">匿名</switch>
     </view>

@@ -81,5 +81,12 @@ Page({
       console.log('取关后:' + that.data.isWatched)
     })
   },
-
+  comment: function(e) {
+    console.log(e)
+    let answerid = e.currentTarget.dataset.answerid;
+    let url = "/pages/comment/comment?answerid="+answerid;
+    wx.navigateTo({
+      url: url,
+    })
+  }
 })

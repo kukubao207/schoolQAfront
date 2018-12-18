@@ -13,11 +13,13 @@
                 <text class="answerer-name">{{answerInfo.ownerName}}</text>
                 <text class="answerer-des">{{answerInfo.individual}}</text>
             </view>
-            <view wx:if="{{!isWatched}}" class="follow flex-item" bindtap="watchUser" data-ownerid="{{answerInfo.ownerId}}">
-                <text>十 关注</text>
-            </view>
-            <view wx:else class="follow flex-item" bindtap="unWatchUser" data-ownerid="{{answerInfo.ownerId}}">
-                <text>- 取关</text>
+            <view wx:if="{{answerInfo.anonymous==0}}">
+              <view wx:if="{{!isWatched}}" class="follow flex-item" bindtap="watchUser" data-ownerid="{{answerInfo.ownerId}}">
+                  <text>十 关注</text>
+              </view>
+              <view wx:else class="follow flex-item" bindtap="unWatchUser" data-ownerid="{{answerInfo.ownerId}}">
+                  <text>- 取关</text>
+              </view>
             </view>
         </view>
     </view>
@@ -46,7 +48,7 @@
                     <image src="../../images/star2.png"></image>
                     <text>收藏</text>
                 </view>
-                <view class="operation-btn flex-item">
+                <view class="operation-btn flex-item" bindtap="comment" data-answerid="{{answerInfo.id}}">
                     <image src="../../images/comment.png"></image>
                     <text>302</text>
                 </view>
