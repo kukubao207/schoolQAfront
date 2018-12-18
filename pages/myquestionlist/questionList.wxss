@@ -1,0 +1,8 @@
+/* pages/myquestionlist/questionList.wxss */
+.question-content {
+  margin-top: 8rpx;
+}
+.question-content text {
+  font-size: 24rpx;
+  color: #BDBDBD;
+}

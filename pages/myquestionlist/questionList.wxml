@@ -1,0 +1,32 @@
+<!--pages/myquestionlist/questionList.wxml-->
+<view class='container questionList'>
+  <block wx:for='{{myQuestions}}' wx:for-index="idx" wx:for-item="question" data-idx="{{idx}}">
+    <view class="feed-item">
+      <view class="feed-content">
+        <!--问题-->
+        <view class="question" bindtap="bindQueTap" data-qid="{{item.id}}">
+          <a class="question-link">
+            <text>{{question.title}}</text>
+          </a>
+        </view>
+        <!--问题内容-->
+        <view class='question-content'>
+          <a>
+            <text>{{question.content}}</text>
+          </a>
+        </view>
+        <!--回答-->
+        <view class="answer-body">
+          <view class="answer-actions">
+            <view class="comments dot">
+              <a>{{question.answerCount}} 回答 </a>
+            </view>
+            <view class="follow-it">
+              <a>{{question.createdDate}}</a>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

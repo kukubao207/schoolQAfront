@@ -82,3 +82,21 @@ module.exports.discoveryNext = discoveryNext;
 
 
 
+/**
+ * 邹智鹏添加及修改
+ */
+
+const getOwnerId = () => {
+  return new Promise(function(resolve, reject) {
+    wx.getStorage({
+      key: 'ownerid',
+      success: res => {
+        resolve(res.data)
+      },
+      fail: err => {
+        reject(err)
+      }
+    })
+  })
+}
+module.exports.getOwnerId = getOwnerId

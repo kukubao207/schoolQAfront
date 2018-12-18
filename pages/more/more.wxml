@@ -36,7 +36,7 @@
       <view class="myitem-icon flex-item" >
         <image src="../../images/draft.png"></image>
       </view>
-      <view class="myitem-name flex-item">
+      <view class="myitem-name flex-item" bindtap='navigateToMyQuestion'>
         <text>我的提问</text>
       </view>
     </view>
