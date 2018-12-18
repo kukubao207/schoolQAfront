@@ -6,10 +6,10 @@ Page({
     currentNavtab: "0",
     moments: [],
     moment_page: 1,
-    moment_page_size: 8,
+    moment_page_size: 6,
     follows: [],
     follow_page: 1,
-    follow_page_size: 8,
+    follow_page_size: 6,
     ownerId: '',
   },
   onLoad: function() {
@@ -21,8 +21,8 @@ Page({
       follows: [],
       follow_page: 1
     });
-    this.getFollows();
     this.getMoments();
+    this.getFollows();
   },
   
   getFollows: function() {
@@ -30,12 +30,12 @@ Page({
     let ownerid = wx.getStorageSync('ownerid');
     util.getData('answer/' + ownerid + '/watchUserAnswerList/' + that.data.follow_page + '/' + that.data.follow_page_size).then(res => {
       console.log(res);
-      if (res.code === 200) {
+      if (res.data.code === 200) {
         that.setData({
-          follows: that.data.follows.concat(res.data.content),
+          follows: that.data.follows.concat(res.data.data.content),
           follow_page: that.data.follow_page + 1,
         })
-      } else {
+      } else if(res.data.code !== 201){
         wx.showToast({
           title: '获取数据失败！',
           icon: 'fail',
@@ -51,26 +51,34 @@ Page({
     });
   },
 
+
+  navigatorTo: function(e){
+    let qid = e.currentTarget.dataset.qid;
+    wx.navigateTo({
+      url: '../question/question?id=' + qid
+    });
+  },
+
   getMoments: function() {
     let that = this;
     let ownerid = wx.getStorageSync('ownerid');
     util.getData('answer/' + ownerid + '/commentList/' + that.data.follow_page + '/' + that.data.follow_page_size).then(res => {
       console.log(res);
-      if (res.code === 200) {
+      if (res.data.code === 200) {
         that.setData({
-          moments: that.data.moments.concat(res.data.content),
+          moments: that.data.moments.concat(res.data.data.content),
           moment_page: that.data.moment_page + 1,
         })
-      } else {
+      } else if(res.data.code !== 201) {
         wx.showToast({
-          title: '获取评论列表失败，请稍后再试！',
+          title: '获取数据失败！',
           icon: 'fail',
           duration: 2000
         })
       }
     }).catch(err => {
       wx.showToast({
-        title: '网络请求失败，请重试',
+        title: '网络请求失败!',
         icon: 'fail',
         duration: 2000
       })
