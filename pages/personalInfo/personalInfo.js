@@ -33,7 +33,7 @@ Page({
   modifyIndividual: function (e) {
 
     // this.setData({
-    //   individual: this.data.individual
+    //   individual: e.detail.value.input
     // })
 
     console.log("individual=" + this.data.individual)
@@ -52,6 +52,9 @@ Page({
         })
         setTimeout(
           function () {
+            wx.navigateBack({
+
+            })
           }, 1200
         )
       } else if (res.data.code !== 201) {

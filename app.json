@@ -9,7 +9,8 @@
     "pages/writeAnswer/writeAnswer",
     "pages/writeQuestion/writeQuestion",
     "pages/personalInfo/personalInfo",
-    "pages/myWatchPerson/myWatchPerson"
+    "pages/myWatchPerson/myWatchPerson",
+    "pages/myWatchQuestion/myWatchQuestion"
   ],
   "window": {
     "backgroundTextStyle": "light",
