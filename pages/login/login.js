@@ -1,7 +1,7 @@
 var app=getApp()
 Page({
   data: {
-    icon_url:"../../images/icon9.jpeg",
+    icon_url:"../../images/ICON.png",
     userInfo:{}
   },
   checkSession(e) {

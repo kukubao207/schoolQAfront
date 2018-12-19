@@ -51,3 +51,16 @@
   height: 160rpx;
   border-radius: 80rpx;
 }
+
+.welcome {
+  /* align-content: center; */
+  text-align: center;
+  font-size: 50rpx;
+  color: rgb(53, 53, 53);
+}
+
+.welcome .small{
+  display: block;
+  font-size: 28rpx;
+  color: rgb(197, 197, 197);
+}

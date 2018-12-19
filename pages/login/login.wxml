@@ -7,7 +7,8 @@
   </view>
 
   <view class="welcome">
-    <h2>欢迎来到南大问答社区！</h2>
+    <text>南大问答社区</text>
+    <text class='small'>登陆后为您提供优质的问答服务~</text>
   </view>
   <!-- </view> -->
   <view class="loginBtn">
