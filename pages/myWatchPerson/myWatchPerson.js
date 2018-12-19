@@ -16,32 +16,15 @@ Page({
    */
   onLoad: function(options) {
     let that = this
-
     var oid = wx.getStorageSync('ownerid')
     this.setData({
       ownerId: oid
     });
     this.getData();
   },
-  lower: function(e) {
-    wx.showNavigationBarLoading();
-    var that = this;
-    setTimeout(function() {
-      wx.hideNavigationBarLoading();
-      that.nextLoad();
-    }, 1000);
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
   getData: function() {
     let that = this
-    let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/8"
+    let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/6"
     util.getData(url).then(function(res) {
       that.setData({
         feed: res.data.data.content,
@@ -51,18 +34,32 @@ Page({
       return Promise.reject(e);
     });
   },
-
-  onShow: function() {
-    this.getData()
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    let that = this
+    wx.getStorageInfo({
+      success: function(res) {
+        let url = "user/" + res.data + "/watchList/1/6"
+        util.getData(url).then(function (res) {
+          that.setData({
+            feed: res.data.data.content,
+            feed_length: res.data.data.content.length,
+          });
+        });
+        wx.stopPullDownRefresh()
+      },
+    })
   },
-
-  nextLoad: function() {
-
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
     let that = this
     let newPage = that.data.page + 1
-    let url = "user/" + that.data.ownerId + "/watchList/" + newPage + "/8"
-
-    util.getData(url).then(function(res) {
+    let url = "user/" + that.data.ownerId + "/watchList/" + newPage + "/6"
+    util.getData(url).then(function (res) {
       if (res.data.code === 200) {
         if (res.data.data.content.length !== 0) {
           that.setData({
@@ -73,23 +70,7 @@ Page({
         } else {
           console.log("已经没有更多的关注用户了")
         }
-      } else {
-        wx.showToast({
-          title: '抱歉，服务器忙',
-        })
       }
     })
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
   },
 })

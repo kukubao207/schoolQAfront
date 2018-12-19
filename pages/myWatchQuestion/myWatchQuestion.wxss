@@ -1,8 +1,4 @@
 /* pages/myWatchQuestion/myWatchQuestion.wxss */
-.container {
-  height: 1500rpx;
-}
-
 .container .search {
   width: 735rpx;
   height: 65rpx;

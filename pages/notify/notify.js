@@ -112,6 +112,7 @@ Page({
       })
       that.getFollows(that.data.follow_page, that.data.follow_page_size);
     }
+    wx.stopPullDownRefresh()
   },
   onReachBottom: function() {
     let that = this;

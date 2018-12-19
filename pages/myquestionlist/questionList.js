@@ -9,7 +9,7 @@ Page({
    */
   data: {
     page: 1,
-    pageSize: 8,
+    pageSize: 100,
     myQuestions: [],
     loading: false,
   },

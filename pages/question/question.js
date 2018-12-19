@@ -142,5 +142,12 @@ Page({
     wx.navigateTo({
       url: '../answer/answer?aid=' + aid + '&qid=' + qid
     })
+  },
+  onPullDownRefresh: function(e){
+    //第二步，加载问题详细数据questionInfo
+    this.getQuestionInfo();
+    //第三步，加载问题的回答列表answerList
+    this.getAnswerList();
+    wx.stopPullDownRefresh();
   }
 })
