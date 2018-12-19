@@ -52,6 +52,20 @@ const getOwnerId = () => {
     })
   })
 }
+//获取当前登录用户的ownerid
+const getOpenId = () => {
+  return new Promise(function (resolve, reject) {
+    wx.getStorage({
+      key: 'openid',
+      success: res => {
+        resolve(res.data)
+      },
+      fail: err => {
+        reject(err)
+      }
+    })
+  })
+}
 module.exports.getData = getData;
 module.exports.postData = postData;
 module.exports.getOwnerId = getOwnerId
