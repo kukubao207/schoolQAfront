@@ -4,11 +4,11 @@
     <view class="feed-item">
       <view class="notify-item flex-wrp">
         <view class="avatar flex-item">
-          <image src="{{item.avatarUrl}}"></image>
+          <image src="{{item.userInfo.avatarUrl}}"></image>
         </view>
         <view class="notify-content flex-item">
-          <text>{{item.nickName}}</text>
-          <!-- <text class="notify-title">{{item.individual}}</text> -->
+          <text>{{item.userInfo.nickName}}</text>
+          <text class="notify-title">{{item.userInfo.individual}}</text>
         </view>
       </view>
     </view>

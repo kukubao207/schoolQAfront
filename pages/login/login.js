@@ -16,6 +16,7 @@ Page({
     })
   },
   login(e) {
+    console.log(e)
     wx.login({
       success: res => {
         wx.request({

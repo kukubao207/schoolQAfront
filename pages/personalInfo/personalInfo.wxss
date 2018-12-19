@@ -47,9 +47,9 @@
 .textarea {
   font-size: 35rpx;
   margin: 0 8% 0% 8%;
-  padding: 2% 0 2% 2%;
+  padding: 3% 3% 3% 3%;
   background-color: white;
-  width: 80%;
+  width: 76%;
   height: 300rpx;
   border: 5rpx solid #fac3cc;
   border-radius: 10rpx;

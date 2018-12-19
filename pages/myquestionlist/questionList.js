@@ -3,61 +3,21 @@ const pageName = 'questionList'
 var util = require('../../utils/util.js')
 const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     page: 1,
-    pageSize: 100,
+    pageSize: 1000,
     myQuestions: [],
     loading: false,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.loadMyQuestions()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   onQuestionTap(e) {
     let qid = e.currentTarget.dataset.qid;
     wx.navigateTo({
       url: '../question/question?id=' + qid
     })
   },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
     if (!this.data.loading) {
       this.setData({page: 1})
@@ -68,48 +28,19 @@ Page({
       })
     }
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
     if (!this.data.loading) {
       this.setData({page: this.data.page + 1})
-      this.loadMyQuestions(this.data.page, wx.hideLoading)
-      wx.showLoading({
-        title: '正在刷新...',
-        mask: true,
-      })
+      this.loadMyQuestions(this.data.page)
     }
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  
-  loadMyQuestions: function(page, unShowLoading) {
+  loadMyQuestions: function(page) {
     page = page || this.data.page
     util.getOwnerId().then(ownerid => {
       this.setData({ loading: true })
       let url = `user/${ownerid}/${pageName}/${this.data.page}/${this.data.pageSize}`
       util.getData(url).then(({ data }) => {
         this.setData({ loading: false })
-        if (200 != data.code) {
-          wx.showToast({
-            title: data.info,
-            icon: 'none ',
-            duration: 1500,
-          })
-          return
-        }
-
-        if (unShowLoading) {
-          unShowLoading()
-        }
-
         wx.stopPullDownRefresh()
 
         // 挂载数据

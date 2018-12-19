@@ -26,19 +26,28 @@
                   取消关注
                 </view>
             </view>
+            <view class="closed" wx:if="{{questionInfo.closed==1}}">
+              <view class="text">问题已关闭</view>
+              <view class="text">当前问题不可回答,且他人回答暂时无法查看</view>
+            </view>
         </view>
+
         <view class="que-operate flex-wrp">
             <view class="invite flex-item">
                 <image src="../../images/invite.png"></image>
                 <text>邀请回答</text>
             </view>
-            <view class="write flex-item" bindtap="writeAnswer">
+            <view wx:if="{{questionInfo.closed==0}}" class="write flex-item" bindtap="writeAnswer">
                 <image src="../../images/write.png"></image>
                 <text>写回答</text>
             </view>
+            <view wx:if="{{questionInfo.closed==1}}" class="write flex-item">
+                  <image src="../../images/write.png"></image>
+                  <text>不可回答</text>
+            </view>
         </view>
     </view>
-
+    <view wx:if="{{questionInfo.closed==0}}">
     <block wx:for="{{answerList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
       <view bindtap="tapAnswer" data-aid="{{item.id}}" data-qid="{{item.questionId}}" class="feed-item">
             <view class="feed-source">
@@ -73,5 +82,6 @@
             </view>
       </view>
     </block>
+    </view>
 </view>
 

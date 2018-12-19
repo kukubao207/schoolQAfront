@@ -24,14 +24,13 @@ Page({
   },
   getData: function() {
     let that = this
-    let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/6"
-    util.getData(url).then(function(res) {
+    let url = "user/" + that.data.ownerId + "/watchList/" + that.data.page + "/8"
+    util.getData(url).then(res => {
+      console.log(res)
       that.setData({
         feed: res.data.data.content,
         feed_length: res.data.data.content.length,
       });
-    }).catch(function(e) {
-      return Promise.reject(e);
     });
   },
   /**

@@ -10,7 +10,6 @@
   width: 680rpx;
   background: #fff;
   padding: 25rpx 70rpx 25rpx 0;
-  border-bottom: solid 1px #ebebeb;
 }
 
 .notify-item  image {
@@ -40,8 +39,9 @@
 }
 
 .notify-item .notify-content .notify-title {
+  padding: 2% 0% 1% 0%;
   color: #afafaf;
-  font-size: 30rpx;
+  font-size: 32rpx;
   line-height: 34rpx;
 }
 

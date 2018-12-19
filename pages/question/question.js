@@ -41,6 +41,7 @@ Page({
     let that = this
     let url = "question/questionInfo/" + that.data.qid
     util.getData(url).then(function (res) {
+      console.log(res)
       that.setData({
         questionInfo: res.data.data,
       });

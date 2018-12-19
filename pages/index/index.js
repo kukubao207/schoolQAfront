@@ -5,7 +5,9 @@ Page({
   data: {
     page: 1,
     feed: [],
-    feed_length: 0
+    feed_length: 0,
+    search_content:'',
+    search_status: 0,
   },
   onLoad: function () {
     this.getData()
@@ -42,13 +44,15 @@ Page({
       that.setData({
         feed: res.data.data.content,
         feed_length: res.data.data.content.length,
-        page: 1
+        page: 1,
+        search_status: 0 
       });
       wx.stopPullDownRefresh()
     });
   },
   //滑动到底时，加载下一页的数据
   onReachBottom: function(){
+    if(this.data.search_status==0){
     var that = this;
     var pagenum = this.data.page + 1; //获取当前页数并+1
     let url = 'question/list/' + pagenum + '/8';
@@ -64,6 +68,19 @@ Page({
           console.log("已经没有更多问题了")
         }
       }
+    })
+    }
+  },
+  search:function(e){
+    let that = this
+    let url = "question/search/1/1000"
+    let jsonData = { "content": e.detail.value}
+    util.postData(url,jsonData).then(res=>{
+      console.log(res)
+      that.setData({
+        feed:res.data.data.content,
+        search_status:1
+      })
     })
   }
 })
