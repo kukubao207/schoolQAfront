@@ -4,8 +4,8 @@ App({
   },
   globalData:{
     userInfo:null,
-    productIp:"118.31.34.71",
-    productPort:"9997",
+    productIp:"https://www.kingsley.fun",
+    productPort:"80",
     devIp:"localhost",
     devPort:"8102",
   }
