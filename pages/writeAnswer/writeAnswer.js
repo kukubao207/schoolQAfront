@@ -7,7 +7,6 @@ Page({
     anoymous:'0',
   },
   onLoad: function (option) {
-    console.log(option)
     this.setData({
       questionId: option.qid,
     })
@@ -38,7 +37,6 @@ Page({
       'ownerId': ownerid};
     let url = "answer/save"
     util.postData(url, jsonData).then(function (res) {
-      console.log(res)
       if (res.data.code === 200) {
         wx.showToast({
           title: '回答成功',

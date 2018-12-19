@@ -1,41 +1,31 @@
-// pages/comment/comment.js
+// pages/comment/comment.js 评论页
 var util = require("../../utils/util.js")
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     answerid:'',
     commentList:'',
     commentContent:'',
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    console.log("options:");
-    console.log(options);
     this.setData({
       answerid:options.answerid
     })
     this.getCommentData();
   },
-
+  //拉取评论数据
   getCommentData : function () {
     let that = this
     let url = "answer/"+this.data.answerid+"/comments"
     util.getData(url).then(function(res){
-      console.log(res)
       if(res.data.code==200){
         that.setData({
           commentList:res.data.data
         })
       }else if(res.data.code==400){
-        console.log('对于这个问题当前没有任何评论')
       }
     })
   },
+  //把用户在输入框写的评论实时记录到commentContent中
   updateComment: function (e) {
     let that = this;
     let comment = e.detail.value;
@@ -43,6 +33,7 @@ Page({
       commentContent: comment
     });
   },
+  //用户点击评论后触发
   comment: function(e) {
     let that = this;
     let url = "comment/save";
@@ -54,7 +45,6 @@ Page({
       'anoymous':0
     }
     util.postData(url,jsonData).then(function(res){
-      console.log(res);
       wx.showToast({
         title: '评论成功',
       })

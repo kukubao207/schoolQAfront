@@ -32,15 +32,12 @@ Page({
   },
 
   modify: function (e) {
-
-    console.log("individual=" + this.data.individual)
     let jsonData = {
       'individual': this.data.individual
     };
 
     let url = 'user/individual/' + this.data.openId
     util.postData(url, jsonData).then(function (res) {
-      console.log("res=" + res)
       if (res.data.code === 200) {
         wx.showToast({
           title: '修改成功',

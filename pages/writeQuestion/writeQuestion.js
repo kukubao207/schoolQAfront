@@ -34,7 +34,6 @@ Page({
   submitNewQuestion() {
     let data = this.data;
     util.postData("question/save", data).then(res => {
-      console.log(res)
       if (res.data.code === 200) {
         wx.showToast({
           title: '发布问题成功',

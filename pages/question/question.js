@@ -17,7 +17,6 @@ Page({
     })
   },
   onLoad: function (option) {
-    console.log('page question onLoad')
     //第一步，获取questionId
     this.setData({
       qid:option.id
@@ -28,9 +27,6 @@ Page({
     this.getAnswerList();
     //第四步，加载是否已关注该问题
     this.getWatchStatus();
-  },
-  tapName: function(event){
-    console.log(event)
   },
   writeAnswer:function(){
     let qid = this.data.qid;
@@ -88,7 +84,6 @@ Page({
         })
       },
       fail: function(res) {
-        console.log(res)
       },
     })
   },
@@ -120,7 +115,6 @@ Page({
         })
       },
       fail: function (res) {
-        console.log(res)
       },
     })
   },
@@ -129,14 +123,12 @@ Page({
     let openid=wx.getStorageSync("openid")
     let url = "user/"+openid+"/watched/question/"+this.data.qid
     util.getData(url).then(function(res){
-      console.log(res);
       that.setData({
         isWatched:res.data.data
       })
     })
   },
   onShow: function(){
-    console.log('page question onShow')
     //第二步，加载问题详细数据questionInfo
     this.getQuestionInfo();
     //第三步，加载问题的回答列表answerList

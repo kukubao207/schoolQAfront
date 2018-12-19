@@ -1,7 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    //小程序加载时需要检查session
   },
   globalData:{
     userInfo:null,

@@ -29,7 +29,6 @@ Page({
     let that = this;
     let ownerid = wx.getStorageSync('ownerid');
     util.getData('answer/' + ownerid + '/watchUserAnswerList/' + page + '/' + page_size).then(res => {
-      console.log(res);
       if (res.data.code === 200) {
         that.setData({
           follows: that.data.follows.concat(res.data.data.content),
@@ -61,7 +60,6 @@ Page({
 
   navigatorToComment: function(e) {
     let aid = e.currentTarget.dataset.aid;
-    console.log(aid);
     wx.navigateTo({
       url: '../comment/comment?answerid=' + aid
     });
@@ -70,9 +68,7 @@ Page({
   getMoments: function(page, page_size) {
     let that = this;
     let ownerid = wx.getStorageSync('ownerid');
-    console.log(that.data.follow_page);
     util.getData('answer/' + ownerid + '/commentList/' + page + '/' + page_size).then(res => {
-      console.log(res);
       if (res.data.code === 200) {
         that.setData({
           moments: that.data.moments.concat(res.data.data.content),
@@ -100,19 +96,13 @@ Page({
   },
 
   onPullDownRefresh: function() {
-    console.log('on Pull Down Refresh !!! ');
     let that = this
-    // currentNavtab: "0",
-    // let url = "question/list/1/10"
     if (that.data.currentNavtab == '0') {
       that.setData({
         moments: [],
         moment_page: 1,
         moment_page_size: 6,
       });
-      console.log(that.data.moments)
-      console.log(that.data.moment_page)
-      console.log(that.data.moment_page_size)
       that.getMoments(that.data.moment_page, that.data.moment_page_size);
     } else if (that.data.currentNavtab == '1') {
       that.setData({
@@ -120,26 +110,14 @@ Page({
         follow_page: 1,
         follow_page_size: 6,
       })
-      console.log(that.data.follows)
-      console.log(that.data.follow_page)
-      console.log(that.data.follow_page_size)
       that.getFollows(that.data.follow_page, that.data.follow_page_size);
     }
   },
   onReachBottom: function() {
     let that = this;
-    console.log('on Reach Bottom !!! ');
-    // currentNavtab: "0",
-    // let url = "question/list/1/10"
     if (that.data.currentNavtab == '0') {
-      console.log(that.data.moments)
-      console.log(that.data.moment_page)
-      console.log(that.data.moment_page_size)
       that.getMoments(that.data.moment_page,that.data.moment_page_size);
     } else if (that.data.currentNavtab == '1') {
-      console.log(that.data.follows)
-      console.log(that.data.follow_page)
-      console.log(that.data.follow_page_size)
       that.getFollows(that.data.follow_page,that.data.follow_page_size);
     }
   }

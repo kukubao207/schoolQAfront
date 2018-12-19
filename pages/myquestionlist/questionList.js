@@ -93,11 +93,9 @@ Page({
   loadMyQuestions: function(page, unShowLoading) {
     page = page || this.data.page
     util.getOwnerId().then(ownerid => {
-      console.log(ownerid)
       this.setData({ loading: true })
       let url = `user/${ownerid}/${pageName}/${this.data.page}/${this.data.pageSize}`
       util.getData(url).then(({ data }) => {
-        console.log(data)
         this.setData({ loading: false })
         if (200 != data.code) {
           wx.showToast({
@@ -129,7 +127,6 @@ Page({
           }
         }
       }).catch((err) => {
-        console.log(err)
         this.setData({ loading: false })
         wx.stopPullDownRefresh()
         if (unShowLoading) {
@@ -138,7 +135,6 @@ Page({
       })
     })
     .catch(err => {
-      console.log(err)
     })
   }
 })

@@ -1,5 +1,4 @@
-//index.js
-
+//index.js 主页
 var util = require('../../utils/util.js')
 var app = getApp()
 Page({
@@ -35,6 +34,7 @@ Page({
       });
     }).catch(function (e) { return Promise.reject(e); });
   },
+  //顶部下拉获取最新数据
   onPullDownRefresh: function(){
     let that = this
     let url = "question/list/1/8"
@@ -47,6 +47,7 @@ Page({
       wx.stopPullDownRefresh()
     });
   },
+  //滑动到底时，加载下一页的数据
   onReachBottom: function(){
     var that = this;
     var pagenum = this.data.page + 1; //获取当前页数并+1

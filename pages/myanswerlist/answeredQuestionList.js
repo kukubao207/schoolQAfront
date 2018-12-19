@@ -91,12 +91,11 @@ Page({
       this.setData({ loading: true })
       let url = `user/${ownerid}/answerList/${page}/${pageSize}`
       util.getData(url).then(({data}) => {
-        console.log(data)
+        (data)
         let { code } = data
         if (200 != code) {
           
         } else {
-          console.log(data.data)
           if (1 >= page) {
             this.setData({ answerList: data.data.content })
           } else {
@@ -119,13 +118,11 @@ Page({
         }
       })
       .catch(err => {
-        console.log(err)
         if (unshownRefresh) {
           unshownRefresh()
         }
         let { info } = data
         if (info) {
-          console.log(info)
         }
 
         this.setData({ loading: false })
@@ -133,7 +130,6 @@ Page({
       })
     })
     .catch(err => {
-      console.log(err)
       if (unshownRefresh) {
         unshownRefresh()
       }
@@ -144,7 +140,6 @@ Page({
   },
   onQuestionTap(e) {
     let qid = e.currentTarget.dataset.qid;
-    console.log(qid)
     wx.navigateTo({
       url: '../question/question?id=' + qid
     })

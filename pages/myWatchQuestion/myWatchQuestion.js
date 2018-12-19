@@ -24,7 +24,6 @@ Page({
   },
 
   upper: function() {
-    console.log("upper")
   },
 
   lower: function(e) {
@@ -34,7 +33,6 @@ Page({
       wx.hideNavigationBarLoading();
       that.nextLoad();
     }, 1000);
-    console.log("lower")
   },
 
   getData: function() {
@@ -44,8 +42,6 @@ Page({
     that.setData({
       ownerid: tmp
     })
-    console.log("ownerid=" + that.data.ownerid)
-
     let url = "user/" + that.data.ownerid + "/watchQuestionList/" + that.data.page + "/8"
     util.getData(url).then(function (res) {
       that.setData({
@@ -53,7 +49,6 @@ Page({
         feed_length: res.data.data.content.length,
         page: that.data.page
       });
-      console.log(that.data.feed);
     }).catch(function (e) { return Promise.reject(e); });
   },
 
@@ -66,12 +61,9 @@ Page({
 
   nextLoad: function () {
     let that = this
-
-    console.log(that.data.page)
     let newPage = that.data.page + 1
     let url = "user/" + that.data.ownerid + "/watchQuestionList/" + newPage + "/8"
     util.getData(url).then(function (res) {
-      console.log(res)
       if (res.data.code === 200) {
         if (res.data.data.content.length !== 0) {
           that.setData({

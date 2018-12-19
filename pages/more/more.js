@@ -32,7 +32,6 @@ Page({
 
   onLoad: function () {
     let that=this
-    console.log('onLoadMore')
     // 查看是否授权
     wx.getSetting({
       success(res) {
