@@ -20,7 +20,7 @@ Page({
     wx.login({
       success: res => {
         wx.request({
-          url: "http://"+app.globalData.productIp+":"+app.globalData.productPort + '/user/login',
+          url: "https://"+app.globalData.productIp+'/user/login',
           method: 'post',
           header: {
             'content-type': 'application/json'

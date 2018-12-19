@@ -4,7 +4,7 @@ var app = getApp()
 function getData(url){
   return new Promise(function(resolve, reject){
     wx.request({
-      url: "http://"+app.globalData.productIp+":"+app.globalData.productPort+"/"+url,
+      url: "https://"+app.globalData.productIp+"/"+url,
       header: {
         //'Content-Type': 'application/json'
       },
@@ -22,7 +22,7 @@ function getData(url){
 function postData(url,data) {
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://" + app.globalData.productIp + ":" + app.globalData.productPort + "/" + url,
+      url: "https://" + app.globalData.productIp + "/" + url,
       method: "POST",
       data: data,
       header: {
