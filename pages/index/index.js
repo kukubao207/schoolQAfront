@@ -27,7 +27,7 @@ Page({
   //刷新数据
   getData: function(){
     let that = this
-    let url = "question/list/"+that.data.page+"/10"
+    let url = "question/list/"+that.data.page+"/8"
     var result = util.getData(url).then(function (res) {
       that.setData({
         feed: res.data.data.content,
@@ -37,7 +37,7 @@ Page({
   },
   onPullDownRefresh: function(){
     let that = this
-    let url = "question/list/1/10"
+    let url = "question/list/1/8"
     var result = util.getData(url).then(function (res) {
       that.setData({
         feed: res.data.data.content,
@@ -50,7 +50,7 @@ Page({
   onReachBottom: function(){
     var that = this;
     var pagenum = this.data.page + 1; //获取当前页数并+1
-    let url = 'question/list/' + pagenum + '/10';
+    let url = 'question/list/' + pagenum + '/8';
     util.getData(url).then(function (res) {
       if (res.data.code === 200) {
         if (res.data.data.content.length !== 0) {
