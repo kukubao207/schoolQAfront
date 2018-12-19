@@ -29,8 +29,16 @@ Page({
             userInfo: e.detail.userInfo
           },
           success: res => {
-            wx.setStorageSync('openid', res.data.data.openid)
-            wx.setStorageSync('ownerid', res.data.data.id)
+            wx.setStorage({
+              key: 'openid',
+              data: res.data.data.openid,
+            })
+            wx.setStorage({
+              key: 'ownerid',
+              data: res.data.data.id,
+            })
+            // wx.setStorageSync('openid', res.data.data.openid)
+            // wx.setStorageSync('ownerid', res.data.data.id)
             wx.switchTab({
               url: '/pages/index/index',
             })
