@@ -12,7 +12,7 @@
   </view>
   <!-- </view> -->
   <view class="loginBtn">
-    <button type="primary" bindtap="primary" open-type="getUserInfo" bindgetuserinfo="login">
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="login">
       微信用户快速登录
     </button>
   </view>
